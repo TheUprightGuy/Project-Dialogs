@@ -141,11 +141,83 @@ BOOL CALLBACK MatrixDlgProc(HWND _hwnd,
 	{
 		switch (LOWORD(_wparam))
 		{
-		case IDC_EDIT_A11:
+		case IDOK6: //Multiply A
 		{
-			_value = ReadFromEditBox(_hwnd, IDC_EDIT_A11);
-			break;
+			
 		}
+		break;
+		case IDOK10: //Multiply B
+		{
+
+		}
+		break;
+		case IDCANCEL2: //Inverse A
+		{
+
+		}
+		break;
+		case IDCANCEL3: //Inverse B
+		{
+
+		}
+		break;
+		case IDOK9: //A Transpose
+		{
+
+		}
+		break;
+		case IDOK11: //B Transpose
+		{
+
+		}
+		break;
+		case IDOK3: // |A|
+		{
+
+		}
+		break;
+		case IDOK7: // |B|
+		{
+
+		}
+		break;
+		case IDOK4: // A -> I
+		{
+			WriteToEditBox(_hwnd, IDC_EDIT_A11, 1);
+			WriteToEditBox(_hwnd, IDC_EDIT_A22, 1);
+			WriteToEditBox(_hwnd, IDC_EDIT_A33, 1);
+			WriteToEditBox(_hwnd, IDC_EDIT_A44, 1);
+		}
+		break;
+		case IDOK8: // B -> I
+		{
+			WriteToEditBox(_hwnd, IDC_EDIT_B11, 1);
+			WriteToEditBox(_hwnd, IDC_EDIT_B22, 1);
+			WriteToEditBox(_hwnd, IDC_EDIT_B33, 1);
+			WriteToEditBox(_hwnd, IDC_EDIT_B44, 1);
+		}
+		break;
+		//Uses A and B into C
+		case IDOK: // A + B
+		{
+
+		}
+		break;
+		case IDCANCEL: // A - B
+		{
+
+		}
+		break;
+		case IDOK2: // A * B
+		{
+
+		}
+		break;
+		case IDOK5: // B * A
+		{
+
+		}
+		break;
 		default:
 			break;
 		}
@@ -265,8 +337,8 @@ int WINAPI WinMain(HINSTANCE _hInstance,
 	winclass.hInstance = _hInstance;
 	winclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 	winclass.hCursor = LoadCursor(NULL, IDC_ARROW);
-	winclass.hbrBackground =
-		static_cast<HBRUSH>(GetStockObject(BLACK_BRUSH));
+	winclass.hbrBackground = CreatePatternBrush(LoadBitmap(_hInstance, MAKEINTRESOURCE(IDB_BITMAP1)));
+		//static_cast<HBRUSH>(GetStockObject(BLACK_BRUSH));
 	winclass.lpszMenuName = NULL;
 	winclass.lpszClassName = WINDOW_CLASS_NAME;
 	winclass.hIconSm = LoadIcon(NULL, IDI_APPLICATION);
@@ -283,10 +355,10 @@ int WINAPI WinMain(HINSTANCE _hInstance,
 	// create the window
 	hwnd = CreateWindowEx(NULL, // Extended style.
 		WINDOW_CLASS_NAME,      // Class.
-		L"Your Basic Window",   // Title.
+		L"Jack Belton & Corey Freeman",   // Title.
 		WS_OVERLAPPEDWINDOW | WS_VISIBLE,
 		0, 0,                    // Initial x,y.
-		400, 100,                // Initial width, height.
+		400, 65,                // Initial width, height.
 		NULL,                   // Handle to parent.
 		g_hMenu,                   // Handle to menu.
 		_hInstance,             // Instance of this application.

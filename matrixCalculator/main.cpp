@@ -337,8 +337,8 @@ int WINAPI WinMain(HINSTANCE _hInstance,
 	winclass.hInstance = _hInstance;
 	winclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 	winclass.hCursor = LoadCursor(NULL, IDC_ARROW);
-	winclass.hbrBackground = CreatePatternBrush(LoadBitmap(_hInstance, MAKEINTRESOURCE(IDB_BITMAP1)));
-		//static_cast<HBRUSH>(GetStockObject(BLACK_BRUSH));
+	winclass.hbrBackground = //CreatePatternBrush(LoadBitmap(_hInstance, MAKEINTRESOURCE(IDB_BITMAP1)));
+		static_cast<HBRUSH>(GetStockObject(BLACK_BRUSH));
 	winclass.lpszMenuName = NULL;
 	winclass.lpszClassName = WINDOW_CLASS_NAME;
 	winclass.hIconSm = LoadIcon(NULL, IDI_APPLICATION);

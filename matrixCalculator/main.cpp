@@ -141,10 +141,62 @@ BOOL CALLBACK MatrixDlgProc(HWND _hwnd,
 	{
 		switch (LOWORD(_wparam))
 		{
-		case IDC_EDIT_A11:
+		case IDOK6: //Multiply A
 		{
-			_value = ReadFromEditBox(_hwnd, IDC_EDIT_A11);
-			break;
+			
+		}
+		case IDOK10: //Multiply B
+		{
+
+		}
+		case IDCANCEL2: //Inverse A
+		{
+
+		}
+		case IDCANCEL3: //Inverse B
+		{
+
+		}
+		case IDOK9: //A Transpose
+		{
+
+		}
+		case IDOK11: //B Transpose
+		{
+
+		}
+		case IDOK3: // |A|
+		{
+
+		}
+		case IDOK7: // |B|
+		{
+
+		}
+		case IDOK4: // A -> I
+		{
+
+		}
+		case IDOK8: // B -> I
+		{
+
+		}
+		//Uses A and B into C
+		case IDOK: // A + B
+		{
+
+		}
+		case IDCANCEL: // A - B
+		{
+
+		}
+		case IDOK2: // A * B
+		{
+
+		}
+		case IDOK5: // B * A
+		{
+
 		}
 		default:
 			break;

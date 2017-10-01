@@ -18,6 +18,7 @@
 #include <windows.h>   // Include all the windows headers.
 #include <windowsx.h>  // Include useful macros.
 
+//#include "matrix.h"
 #include "utils.h"
 #include "resource.h"
 
@@ -134,6 +135,9 @@ BOOL CALLBACK MatrixDlgProc(HWND _hwnd,
 	WPARAM _wparam,
 	LPARAM _lparam)
 {
+
+	//static CMatrix InputMatrix;
+
 	static float _value;
 	switch (_msg)
 	{
@@ -183,18 +187,18 @@ BOOL CALLBACK MatrixDlgProc(HWND _hwnd,
 		break;
 		case IDOK4: // A -> I
 		{
-			WriteToEditBox(_hwnd, IDC_EDIT_A11, 1);
-			WriteToEditBox(_hwnd, IDC_EDIT_A22, 1);
-			WriteToEditBox(_hwnd, IDC_EDIT_A33, 1);
-			WriteToEditBox(_hwnd, IDC_EDIT_A44, 1);
+			//WriteToEditBox(_hwnd, IDC_EDIT_A11, 1);
+			//WriteToEditBox(_hwnd, IDC_EDIT_A22, 1);
+			//WriteToEditBox(_hwnd, IDC_EDIT_A33, 1);
+			//WriteToEditBox(_hwnd, IDC_EDIT_A44, 1);
 		}
 		break;
 		case IDOK8: // B -> I
 		{
-			WriteToEditBox(_hwnd, IDC_EDIT_B11, 1);
-			WriteToEditBox(_hwnd, IDC_EDIT_B22, 1);
-			WriteToEditBox(_hwnd, IDC_EDIT_B33, 1);
-			WriteToEditBox(_hwnd, IDC_EDIT_B44, 1);
+			//WriteToEditBox(_hwnd, IDC_EDIT_B11, 1);
+			//WriteToEditBox(_hwnd, IDC_EDIT_B22, 1);
+			//WriteToEditBox(_hwnd, IDC_EDIT_B33, 1);
+			//WriteToEditBox(_hwnd, IDC_EDIT_B44, 1);
 		}
 		break;
 		//Uses A and B into C
@@ -226,7 +230,7 @@ BOOL CALLBACK MatrixDlgProc(HWND _hwnd,
 	}
 	case WM_CLOSE:
 	{
-		MessageBox(_hwnd, ToWideString(_value).c_str(), L"Value in A11", MB_OK);
+		//MessageBox(_hwnd, ToWideString(_value).c_str(), L"Value in A11", MB_OK);
 		ShowWindow(_hwnd, SW_HIDE);
 		return TRUE;
 		break;

@@ -1,7 +1,7 @@
 #ifndef __MATRIXINPUT_H__
 #define __MATRIXINPUT_H__
 
-//#include<Windows.h>
+#include<Windows.h>
 //#include <windowsx.h>
 //#include "utils.h"
 //#include "resource.h"

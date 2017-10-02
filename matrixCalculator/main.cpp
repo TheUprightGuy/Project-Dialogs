@@ -17,9 +17,8 @@
 
 #include <windows.h>   // Include all the windows headers.
 #include <windowsx.h>  // Include useful macros.
-
-//#include "matrix.h"
-#include "utils.h"
+#include "matrix.h"
+//#include "utils.h"
 #include "resource.h"
 
 #define WINDOW_CLASS_NAME L"WINCLASS1"

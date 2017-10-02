@@ -15,10 +15,10 @@
 
 #define WIN32_LEAN_AND_MEAN
 
-//#include <windows.h>   // Include all the windows headers.
+#include <windows.h>   // Include all the windows headers.
 #include <windowsx.h>  // Include useful macros.
 
-#include "matrix.h"
+//#include "matrix.h"
 #include "utils.h"
 #include "resource.h"
 

@@ -19,9 +19,11 @@
 
 // Library Includes
 #include <Windows.h>
+#include "matrix.h"
 #include <strstream>
 #include <sstream>
 #include <string>
+
 
 
 // Local Includes

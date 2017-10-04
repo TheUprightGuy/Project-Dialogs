@@ -1,25 +1,30 @@
 #ifndef __MATRIXINPUT_H__
 #define __MATRIXINPUT_H__
 
-#include<Windows.h>
-//#include <windowsx.h>
-//#include "resource.h"
+//#include "utils.h"
+//#include <Windows.h>
 
 class CMatrix
 {
 public:
-	CMatrix();
+	CMatrix(HWND _hwnd);
 	~CMatrix();
 
-	void GetMatrixA(HWND _hwnd);
-	void GetMatrixB(HWND _hwnd);
+	void GetMatrixA();
+	void GetMatrixB();
 
 	int Get2DMatrixDet(int i2dMatrix[2][2]) { return ((i2dMatrix[1][1] * i2dMatrix[2][2]) - (i2dMatrix[1][2] * i2dMatrix[2][1])); }
-	int Get3DMatrixDet(int i3dMatrix[3][3]);
+	//int Get3DMatrixDet(int i3dMatrix[3][3]);
+
+	void ScalarMult(int iScalar, bool bAorB);
+	void WriteToMatrixR();
 
 private:
 	int iMatrixA[4][4];
 	int iMatrixB[4][4];
+
+	int iMatrixR[4][4];
+	HWND hwnd;
 };
 
 #endif // __MATRIXINPUT_H__

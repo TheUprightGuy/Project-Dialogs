@@ -112,7 +112,7 @@ int CMatrix::Get3DMatrixDet()
 	return iFinal;
 }
 
-void CMatrix::Get4DMatrixDetA()
+int CMatrix::Get4DMatrixDetA()
 {
 	GetMatrixA();
 
@@ -159,11 +159,11 @@ void CMatrix::Get4DMatrixDetA()
 	}
 
 	int iFinal = (iTotals[0]) - (iTotals[1]) + (iTotals[2]) - (iTotals[3]);
-
+	return (iFinal);
 	utils::WriteToEditBox(hwnd, IDC_EDIT_DetA, iFinal);
 }
 
-void CMatrix::Get4DMatrixDetB()
+int CMatrix::Get4DMatrixDetB()
 {
 	GetMatrixB();
 
@@ -211,6 +211,7 @@ void CMatrix::Get4DMatrixDetB()
 
 	int iFinal = (iTotals[0]) - (iTotals[1]) + (iTotals[2]) - (iTotals[3]);
 
+	return (iFinal);
 	utils::WriteToEditBox(hwnd, IDC_EDIT_DetB, iFinal);
 }
 

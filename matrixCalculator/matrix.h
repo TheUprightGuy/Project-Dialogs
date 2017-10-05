@@ -14,8 +14,8 @@ public:
 
 	int Get2DMatrixDet(int i2dMatrix[2][2]) { return ((i2dMatrix[1][1] * i2dMatrix[2][2]) - (i2dMatrix[1][2] * i2dMatrix[2][1])); }
 	int Get3DMatrixDet();
-	void Get4DMatrixDetA();
-	void Get4DMatrixDetB();
+	int Get4DMatrixDetA();
+	int Get4DMatrixDetB();
 
 	void ScalarMult(bool bAorB);
 	void Transpose(bool bAorB);

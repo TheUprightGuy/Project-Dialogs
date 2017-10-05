@@ -175,6 +175,8 @@ void CMatrix::MatrixMult(bool bAorB)
 
 void CMatrix::MatrixAdd()
 {
+	GetMatrixA();
+	GetMatrixB();
 	for (int i = 0; i < 4; i++)
 	{
 		for (int j = 0; j < 4; j++)
@@ -182,10 +184,13 @@ void CMatrix::MatrixAdd()
 			iMatrixR[i][j] = iMatrixA[i][j] + iMatrixB[i][j];
 		}
 	}
+	WriteToMatrixR();
 }
 
 void CMatrix::MatrixSub()
 {
+	GetMatrixA();
+	GetMatrixB();
 	for (int i = 0; i < 4; i++)
 	{
 		for (int j = 0; j < 4; j++)
@@ -193,12 +198,13 @@ void CMatrix::MatrixSub()
 			iMatrixR[i][j] = iMatrixA[i][j] - iMatrixB[i][j];
 		}
 	}
+	WriteToMatrixR();
 }
 
 void CMatrix::WriteToMatrixR()
 {
 	utils::WriteToEditBox(hwnd, IDC_EDIT_R11, iMatrixR[0][0]);
-	utils::WriteToEditBox(hwnd, IDC_EDIT_R12, iMatrixR[0][2]);
+	utils::WriteToEditBox(hwnd, IDC_EDIT_R12, iMatrixR[0][1]);
 	utils::WriteToEditBox(hwnd, IDC_EDIT_R13, iMatrixR[0][2]);
 	utils::WriteToEditBox(hwnd, IDC_EDIT_R14, iMatrixR[0][3]);
 

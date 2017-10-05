@@ -16,6 +16,12 @@ public:
 	//int Get3DMatrixDet(int i3dMatrix[3][3]);
 
 	void ScalarMult(bool bAorB);
+	void Transpose(bool bAorB);
+	void MatrixToI(bool bAorB);
+
+	void MatrixMult(bool bABorBA);
+	void MatrixAdd();
+	void MatrixSub();
 	void WriteToMatrixR();
 
 private:

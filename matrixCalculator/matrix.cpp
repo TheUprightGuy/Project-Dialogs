@@ -99,6 +99,102 @@ void CMatrix::ScalarMult(bool bAorB)
 	//SMatrix.SetMatrixA();
 }
 
+void CMatrix::Transpose(bool bABorBA)
+{
+	if (bABorBA)
+	{
+		GetMatrixA();
+
+		for (int i = 0; i < 4; i++)
+		{
+			for (int j = 0; j < 4; j++)
+			{
+				iMatrixR[j][i] = iMatrixA[i][j];
+			}
+		}
+	}
+	
+	else
+	{
+		GetMatrixB();
+
+		for (int i = 0; i < 4; i++)
+		{
+			for (int j = 0; j < 4; j++)
+			{
+				iMatrixR[j][i] = iMatrixB[i][j];
+			}
+		}
+	}
+	WriteToMatrixR();
+}
+
+void CMatrix::MatrixToI(bool bAorB)
+{
+	if (bAorB)
+	{
+		utils::WriteToEditBox(hwnd, IDC_EDIT_A11, 1);
+		utils::WriteToEditBox(hwnd, IDC_EDIT_A22, 1);
+		utils::WriteToEditBox(hwnd, IDC_EDIT_A33, 1);
+		utils::WriteToEditBox(hwnd, IDC_EDIT_A44, 1);
+	}
+	else
+	{
+		utils::WriteToEditBox(hwnd, IDC_EDIT_B11, 1);
+		utils::WriteToEditBox(hwnd, IDC_EDIT_B22, 1);
+		utils::WriteToEditBox(hwnd, IDC_EDIT_B33, 1);
+		utils::WriteToEditBox(hwnd, IDC_EDIT_B44, 1);
+	}
+}
+
+void CMatrix::MatrixMult(bool bAorB)
+{
+	if (bAorB)
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			for (int j = 0; j < 4; j++)
+			{
+				iMatrixR[i][j] = (iMatrixA[i][1] * iMatrixB[1][j]) + (iMatrixA[i][2] * iMatrixB[2][j]) + (iMatrixA[i][3] * iMatrixB[3][j]) + (iMatrixA[i][4] * iMatrixB[4][j]);
+			}
+		}
+	}
+	else
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			for (int j = 0; j < 4; j++)
+			{
+				iMatrixR[i][j] = (iMatrixB[i][1] * iMatrixA[1][j]) + (iMatrixB[i][2] * iMatrixA[2][j]) + (iMatrixB[i][3] * iMatrixA[3][j]) + (iMatrixB[i][4] * iMatrixA[4][j]);
+			}
+		}
+	}
+
+	WriteToMatrixR();
+}
+
+void CMatrix::MatrixAdd()
+{
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			iMatrixR[i][j] = iMatrixA[i][j] + iMatrixB[i][j];
+		}
+	}
+}
+
+void CMatrix::MatrixSub()
+{
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			iMatrixR[i][j] = iMatrixA[i][j] - iMatrixB[i][j];
+		}
+	}
+}
+
 void CMatrix::WriteToMatrixR()
 {
 	utils::WriteToEditBox(hwnd, IDC_EDIT_R11, iMatrixR[1][1]);

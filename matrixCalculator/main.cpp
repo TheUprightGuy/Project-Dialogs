@@ -79,7 +79,6 @@ LRESULT CALLBACK WindowProc(HWND _hwnd,
 		{
 			ShowWindow(g_hDlgMatrix, SW_SHOWNORMAL);
 			g_pMatrix = new CMatrix(_hwnd);
-
 			break;
 		}
 		case ID_CALCULATOR_TRANSFORMATION:
@@ -144,6 +143,7 @@ BOOL CALLBACK MatrixDlgProc(HWND _hwnd,
 	static float _value;
 	switch (_msg)
 	{
+
 	case WM_COMMAND:
 	{
 		switch (LOWORD(_wparam))
@@ -155,7 +155,7 @@ BOOL CALLBACK MatrixDlgProc(HWND _hwnd,
 		break;
 		case IDOK10: //Multiply B
 		{
-
+			g_pMatrix->ScalarMult(0);
 		}
 		break;
 		case IDCANCEL2: //Inverse A
@@ -170,12 +170,12 @@ BOOL CALLBACK MatrixDlgProc(HWND _hwnd,
 		break;
 		case IDOK9: //A Transpose
 		{
-
+			g_pMatrix->Transpose(1);
 		}
 		break;
 		case IDOK11: //B Transpose
 		{
-
+			g_pMatrix->Transpose(0);
 		}
 		break;
 		case IDOK3: // |A|
@@ -190,39 +190,33 @@ BOOL CALLBACK MatrixDlgProc(HWND _hwnd,
 		break;
 		case IDOK4: // A -> I
 		{
-			//WriteToEditBox(_hwnd, IDC_EDIT_A11, 1);
-			//WriteToEditBox(_hwnd, IDC_EDIT_A22, 1);
-			//WriteToEditBox(_hwnd, IDC_EDIT_A33, 1);
-			//WriteToEditBox(_hwnd, IDC_EDIT_A44, 1);
+			g_pMatrix->MatrixToI(1);
 		}
 		break;
 		case IDOK8: // B -> I
 		{
-			//WriteToEditBox(_hwnd, IDC_EDIT_B11, 1);
-			//WriteToEditBox(_hwnd, IDC_EDIT_B22, 1);
-			//WriteToEditBox(_hwnd, IDC_EDIT_B33, 1);
-			//WriteToEditBox(_hwnd, IDC_EDIT_B44, 1);
+			g_pMatrix->MatrixToI(0);
 		}
 		break;
 		//Uses A and B into C
 		case IDOK: // A + B
 		{
-
+			g_pMatrix->MatrixAdd();
 		}
 		break;
 		case IDCANCEL: // A - B
 		{
-
+			g_pMatrix->MatrixSub();
 		}
 		break;
 		case IDOK2: // A * B
 		{
-
+			g_pMatrix->MatrixMult(1);
 		}
 		break;
 		case IDOK5: // B * A
 		{
-
+			g_pMatrix->MatrixMult(0);
 		}
 		break;
 		default:

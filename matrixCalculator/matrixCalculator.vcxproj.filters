@@ -40,12 +40,6 @@
     <ClCompile Include="determinant.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="scalermulti.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="transpose.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="inverse.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

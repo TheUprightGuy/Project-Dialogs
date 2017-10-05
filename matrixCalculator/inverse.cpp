@@ -1,32 +1,74 @@
+#include <iostream>
 
+using namespace std;
 
-if(_ADeterminant = 0)
+int _ADeterminant = 0;
+
+int test()
 {
-    std::cout << "Matrix has no inverse." << endl;
-}
-else
-{
-    matrix inverse(matrix M)
+	if (_ADeterminant = 0)
 	{
-        matrix I = identity(M.size());
+		std::cout << "Matrix has no inverse." << endl;
+	}
+	else
+	{
+		int i, j, k, n;
+		float a[10][10] = { 0 }, d;
+		n = 4;
+		cout << "Read all coefficients of matrix with b matrix too " << endl;
+		for (i = 1; i <= n; i++)
+			for (j = 1; j <= n; j++)
+				cin >> a[i][j];
 
-        for(int K=0; K<rows; ++K)
+		for (i = 1; i <= n; i++)
+			for (j = 1; j <= 2 * n; j++)
+				if (j == (i + n))
+					a[i][j] = 1;
+
+		/************** partial pivoting **************/
+		for (i = n; i > 1; i--)
 		{
-            //one in the pivot
-            double factor = M[K][K];
-            M[K] /= factor;
-            I[K] /= factor;
-            //zeroing the column
+			if (a[i - 1][1] < a[i][1])
+				for (j = 1; j <= n * 2; j++)
+				{
+					d = a[i][j];
+					a[i][j] = a[i - 1][j];
+					a[i - 1][j] = d;
+				}
+		}
+		cout << "pivoted output: " << endl;
+		for (i = 1; i <= n; i++)
+		{
+			for (j = 1; j <= n * 2; j++)
+				cout << a[i][j] << "    ";
+			cout << endl;
+		}
+		/********** reducing to diagonal  matrix ***********/
 
-            for(int L=0; L<rows; ++L){
-                if( K==L ) continue;
-                double coefficient = M[L][K];
-                M[L] -= coefficient*M[K];
-                I[L] -= coefficient*I[K];
-            }
-        }
+		for (i = 1; i <= n; i++)
+		{
+			for (j = 1; j <= n * 2; j++)
+				if (j != i)
+				{
+					d = a[j][i] / a[i][i];
+					for (k = 1; k <= n * 2; k++)
+						a[j][k] -= a[i][k] * d;
+				}
+		}
+		/************** reducing to unit matrix *************/
+		for (i = 1; i <= n; i++)
+		{
+			d = a[i][i];
+			for (j = 1; j <= n * 2; j++)
+				a[i][j] = a[i][j] / d;
+		}
 
-    return I;
-    }
+		cout << "your solutions: " << endl;
+		for (i = 1; i <= n; i++)
+		{
+			for (j = n + 1; j <= n * 2; j++)
+				cout << a[i][j] << "    ";
+			cout << endl;
+		}
+	}
 }
-

@@ -17,14 +17,14 @@
 
 
 #include "matrix.h"
-#include "utils.h"
+//#include "utils.h"
 #include "resource.h"
 
 #define WINDOW_CLASS_NAME L"WINCLASS1"
 
 HMENU g_hMenu;
 HWND g_hDlgMatrix, g_hDlgTransformation, g_hDlgGaussian, g_hDlgQuaternion, g_hDlgSLERP;
-//CMatrix* g_pMatrix = 0;
+CMatrix* g_pMatrix = 0;
 
 void GameLoop()
 {
@@ -78,7 +78,7 @@ LRESULT CALLBACK WindowProc(HWND _hwnd,
 		case ID_CALCULATOR_MATRIX:
 		{
 			ShowWindow(g_hDlgMatrix, SW_SHOWNORMAL);
-			//g_pMatrix = new CMatrix(_hwnd);
+			g_pMatrix = new CMatrix(_hwnd);
 
 			break;
 		}
@@ -150,7 +150,7 @@ BOOL CALLBACK MatrixDlgProc(HWND _hwnd,
 		{
 		case IDOK6: //Multiply A
 		{
-//			g_pMatrix->ScalarMult(ReadFromEditBox(_hwnd, IDC_EDIT_AScaled), 1);
+			g_pMatrix->ScalarMult(1);
 		}
 		break;
 		case IDOK10: //Multiply B

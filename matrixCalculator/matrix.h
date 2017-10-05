@@ -1,8 +1,7 @@
 #ifndef __MATRIXINPUT_H__
 #define __MATRIXINPUT_H__
 
-//#include "utils.h"
-//#include <Windows.h>
+#include <Windows.h>
 
 class CMatrix
 {
@@ -16,7 +15,7 @@ public:
 	int Get2DMatrixDet(int i2dMatrix[2][2]) { return ((i2dMatrix[1][1] * i2dMatrix[2][2]) - (i2dMatrix[1][2] * i2dMatrix[2][1])); }
 	//int Get3DMatrixDet(int i3dMatrix[3][3]);
 
-	void ScalarMult(int iScalar, bool bAorB);
+	void ScalarMult(bool bAorB);
 	void WriteToMatrixR();
 
 private:

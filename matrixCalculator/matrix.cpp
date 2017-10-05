@@ -240,43 +240,54 @@ void CMatrix::WriteToMatrixR()
 
 
 //int CMatrix::Get3DMatrixDet(int i3dMatrix[3][3])
+//int iCurrent = 0;
+//int i2dArray[2][2];
+//int i3dMatrix[3][3] = { 1,2,3,4,5,6,7,8,9 };
+//int iTotals[3];
+//
+//int iX = 0, iY = 0;
+//for (int i = 0; i < 3; i++)
 //{
-//	int iCurrent = 0;
-//	int i2dArray[2][2];
-//	int iTotals[3];
+//	iCurrent = i3dMatrix[0][i]; //Getting Current along the top row;
 //
-//	int iX = 0, iY = 0;
-//	for (int i = 0; i < 3; i++) 
+//	for (int j = 0; j < 3; j++) //Goings through rows
 //	{
-//		iCurrent = i3dMatrix[1][i]; //Getting Current along the top row;
-//			
-//		for (int j = 0; j < 3; j++) //Goings through rows
+//		for (int k = 0; k < 3; k++) //Going along rows
 //		{
-//			for (int k = 0; k < 3; k++) //Going along rows
+//			if ((j != 0) && (k != i)) //If not row 1 or column of current
 //			{
-//				if ((j != 1) || (k != i)) //If not row 1 or column of current
-//				{
-//					i2dArray[iX][iY] = i3dMatrix[j][k]; //Add to 2d
-//					iY++; //increment 2d
-//				}
-//			}
-//
-//			if (iY == 2) //If gone through a row
-//			{
-//				iX++;
-//				iY = 0;
-//			}
-//
-//			if (iX == 2) //If 2dMatrix gotten
-//			{
-//				iTotals[i] = iCurrent * (Get2DMatrixDet(i2dArray));
-//				break;
+//				i2dArray[iX][iY] = i3dMatrix[j][k]; //Add to 2d
+//				iY++; //increment 2d
 //			}
 //		}
 //
-//		
+//		if (iY >= 2) //If gone through a row
+//		{
+//			iX++;
+//			iY = 0;
+//		}
+//
+//		if (iX == 2) //If 2dMatrix gotten
+//		{
+//			iTotals[i] = iCurrent * ((i2dArray[0][0] * i2dArray[1][1]) - (i2dArray[0][1] * i2dArray[1][0]));
+//			for (int i = 0; i < 2; i++)
+//			{
+//				for (int h = 0; h < 2; h++)
+//				{
+//					i2dArray[i][h] = 0;
+//				}
+//			}
+//			iX = 0;
+//			iY = 0;
+//			break;
+//		}
 //	}
-//	return 0;
+//
+//
+//}
+//
+//int iFinal = (i3dMatrix[0][0] * iTotals[0]) - (i3dMatrix[0][1] * iTotals[1]) + (i3dMatrix[0][2] * iTotals[2]);
+//return 0;
 //}
 
 

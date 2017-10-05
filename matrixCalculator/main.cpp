@@ -78,7 +78,7 @@ LRESULT CALLBACK WindowProc(HWND _hwnd,
 		case ID_CALCULATOR_MATRIX:
 		{
 			ShowWindow(g_hDlgMatrix, SW_SHOWNORMAL);
-			g_pMatrix = new CMatrix(_hwnd);
+			g_pMatrix = new CMatrix(g_hDlgMatrix);
 			break;
 		}
 		case ID_CALCULATOR_TRANSFORMATION:

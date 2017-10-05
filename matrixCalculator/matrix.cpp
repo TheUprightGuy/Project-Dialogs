@@ -63,6 +63,157 @@ void CMatrix::GetMatrixB()
 	iMatrixB[3][3] = utils::ReadFromEditBox(hwnd, IDC_EDIT_B44);
 }
 
+int CMatrix::Get3DMatrixDet()
+{
+	int iCurrent = 0;
+	int i2dArray[2][2];
+	int iTotals[3];
+	
+	int iX = 0, iY = 0;
+	for (int i = 0; i < 3; i++)
+	{
+		iCurrent = i3dMatrix[0][i]; //Getting Current along the top row;
+	
+		for (int j = 0; j < 3; j++) //Goings through rows
+		{
+			for (int k = 0; k < 3; k++) //Going along rows
+			{
+				if ((j != 0) && (k != i)) //If not row 1 or column of current
+				{
+					i2dArray[iX][iY] = i3dMatrix[j][k]; //Add to 2d
+					iY++; //increment 2d
+				}
+			}
+	
+			if (iY >= 2) //If gone through a row
+			{
+				iX++;
+				iY = 0;
+			}
+	
+			if (iX == 2) //If 2dMatrix gotten
+			{
+				iTotals[i] = iCurrent * ((i2dArray[0][0] * i2dArray[1][1]) - (i2dArray[0][1] * i2dArray[1][0]));
+				for (int i = 0; i < 2; i++)
+				{
+					for (int h = 0; h < 2; h++)
+					{
+						i2dArray[i][h] = 0;
+					}
+				}
+				iX = 0;
+				iY = 0;
+				break;
+			}
+		}
+	}
+	
+	int iFinal = (iTotals[0]) - (iTotals[1]) + (iTotals[2]);
+	return iFinal;
+}
+
+void CMatrix::Get4DMatrixDetA()
+{
+	GetMatrixA();
+
+	int iCurrent = 0;
+	int iTotals[4];
+	int iX = 0, iY = 0;
+
+	for (int i = 0; i < 4; i++)
+	{
+		iCurrent = iMatrixA[0][i]; //Getting Current along the top row;
+
+		for (int j = 0; j < 4; j++) //Goings through rows
+		{
+			for (int k = 0; k < 4; k++) //Going along rows
+			{
+				if ((j != 0) && (k != i)) //If not row 1 or column of current
+				{
+					i3dMatrix[iX][iY] = iMatrixA[j][k]; //Add to 3d
+					iY++; //increment 3d
+				}
+			}
+
+			if (iY >= 3) //If gone through a row
+			{
+				iX++;
+				iY = 0;
+			}
+
+			if (iX == 3) //If 3dMatrix gotten
+			{
+				iTotals[i] = iCurrent * (Get3DMatrixDet());
+				for (int i = 0; i < 2; i++)
+				{
+					for (int h = 0; h < 2; h++)
+					{
+						i3dMatrix[i][h] = 0;
+					}
+				}
+				iX = 0;
+				iY = 0;
+				break;
+			}
+		}
+	}
+
+	int iFinal = (iTotals[0]) - (iTotals[1]) + (iTotals[2]) - (iTotals[3]);
+
+	utils::WriteToEditBox(hwnd, IDC_EDIT_DetA, iFinal);
+}
+
+void CMatrix::Get4DMatrixDetB()
+{
+	GetMatrixB();
+
+	int iCurrent = 0;
+	int iTotals[4];
+	int iX = 0, iY = 0;
+
+	for (int i = 0; i < 4; i++)
+	{
+		iCurrent = iMatrixB[0][i]; //Getting Current along the top row;
+
+		for (int j = 0; j < 4; j++) //Goings through rows
+		{
+			for (int k = 0; k < 4; k++) //Going along rows
+			{
+				if ((j != 0) && (k != i)) //If not row 1 or column of current
+				{
+					i3dMatrix[iX][iY] = iMatrixB[j][k]; //Add to 3d
+					iY++; //increment 3d
+				}
+			}
+
+			if (iY >= 3) //If gone through a row
+			{
+				iX++;
+				iY = 0;
+			}
+
+			if (iX == 3) //If 3dMatrix gotten
+			{
+				iTotals[i] = iCurrent * (Get3DMatrixDet());
+				for (int i = 0; i < 2; i++)
+				{
+					for (int h = 0; h < 2; h++)
+					{
+						i3dMatrix[i][h] = 0;
+					}
+				}
+				iX = 0;
+				iY = 0;
+				break;
+			}
+		}
+	}
+
+	int iFinal = (iTotals[0]) - (iTotals[1]) + (iTotals[2]) - (iTotals[3]);
+
+	utils::WriteToEditBox(hwnd, IDC_EDIT_DetB, iFinal);
+}
+
 void CMatrix::ScalarMult(bool bAorB)
 {
 	//std::cin >> _iScaler;
@@ -238,56 +389,5 @@ void CMatrix::WriteToMatrixR()
 }									
 
 
-
-//int CMatrix::Get3DMatrixDet(int i3dMatrix[3][3])
-//int iCurrent = 0;
-//int i2dArray[2][2];
-//int i3dMatrix[3][3] = { 1,2,3,4,5,6,7,8,9 };
-//int iTotals[3];
-//
-//int iX = 0, iY = 0;
-//for (int i = 0; i < 3; i++)
-//{
-//	iCurrent = i3dMatrix[0][i]; //Getting Current along the top row;
-//
-//	for (int j = 0; j < 3; j++) //Goings through rows
-//	{
-//		for (int k = 0; k < 3; k++) //Going along rows
-//		{
-//			if ((j != 0) && (k != i)) //If not row 1 or column of current
-//			{
-//				i2dArray[iX][iY] = i3dMatrix[j][k]; //Add to 2d
-//				iY++; //increment 2d
-//			}
-//		}
-//
-//		if (iY >= 2) //If gone through a row
-//		{
-//			iX++;
-//			iY = 0;
-//		}
-//
-//		if (iX == 2) //If 2dMatrix gotten
-//		{
-//			iTotals[i] = iCurrent * ((i2dArray[0][0] * i2dArray[1][1]) - (i2dArray[0][1] * i2dArray[1][0]));
-//			for (int i = 0; i < 2; i++)
-//			{
-//				for (int h = 0; h < 2; h++)
-//				{
-//					i2dArray[i][h] = 0;
-//				}
-//			}
-//			iX = 0;
-//			iY = 0;
-//			break;
-//		}
-//	}
-//
-//
-//}
-//
-//int iFinal = (i3dMatrix[0][0] * iTotals[0]) - (i3dMatrix[0][1] * iTotals[1]) + (i3dMatrix[0][2] * iTotals[2]);
-//return 0;
-//}
 
 

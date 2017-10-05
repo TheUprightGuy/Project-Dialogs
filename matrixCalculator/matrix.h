@@ -13,7 +13,9 @@ public:
 	void GetMatrixB();
 
 	int Get2DMatrixDet(int i2dMatrix[2][2]) { return ((i2dMatrix[1][1] * i2dMatrix[2][2]) - (i2dMatrix[1][2] * i2dMatrix[2][1])); }
-	//int Get3DMatrixDet(int i3dMatrix[3][3]);
+	int Get3DMatrixDet();
+	void Get4DMatrixDetA();
+	void Get4DMatrixDetB();
 
 	void ScalarMult(bool bAorB);
 	void Transpose(bool bAorB);
@@ -29,6 +31,7 @@ private:
 	int iMatrixA[4][4];
 	int iMatrixB[4][4];
 
+	int i3dMatrix[3][3];
 	int iMatrixR[4][4];
 	HWND hwnd;
 };

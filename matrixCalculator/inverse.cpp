@@ -1,4 +1,4 @@
-/*
+
 
 if(_ADeterminant = 0)
 {
@@ -6,14 +6,18 @@ if(_ADeterminant = 0)
 }
 else
 {
-    matrix inverse(matrix M){
+    matrix inverse(matrix M)
+	{
         matrix I = identity(M.size());
-        for(int K=0; K<rows; ++K){
+
+        for(int K=0; K<rows; ++K)
+		{
             //one in the pivot
             double factor = M[K][K];
             M[K] /= factor;
             I[K] /= factor;
             //zeroing the column
+
             for(int L=0; L<rows; ++L){
                 if( K==L ) continue;
                 double coefficient = M[L][K];
@@ -26,4 +30,3 @@ else
     }
 }
 
-*/

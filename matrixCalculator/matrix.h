@@ -18,6 +18,7 @@ public:
 	void ScalarMult(bool bAorB);
 	void Transpose(bool bAorB);
 	void MatrixToI(bool bAorB);
+	void MatrixInverse(bool bAorB);
 
 	void MatrixMult(bool bABorBA);
 	void MatrixAdd();

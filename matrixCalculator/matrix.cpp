@@ -147,6 +147,19 @@ void CMatrix::MatrixToI(bool bAorB)
 	}
 }
 
+void CMatrix::MatrixInverse(bool bAorB)
+{
+	if (bAorB)//If getting inverse of A
+	{
+		GetMatrixA();
+	}
+	else //If getting inverse of b
+	{
+		GetMatrixB();
+	}
+	WriteToMatrixR();
+}
+
 void CMatrix::MatrixMult(bool bAorB)
 {
 	if (bAorB)

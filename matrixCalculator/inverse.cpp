@@ -61,7 +61,7 @@
 //		for (i = 1; i <= n; i++)
 //		{
 //			for (j = n + 1; j <= n * 2; j++)
-//				cout << a[i][j] = iMatrixR[i][j];
+//				a[i][j] = iMatrixR[i][j];
 //		}
 //	}
 //}

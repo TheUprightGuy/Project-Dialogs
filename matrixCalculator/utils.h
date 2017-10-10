@@ -12,6 +12,9 @@
 // Mail			: your.name@mediadesign.school.nz
 //
 
+
+//Corey's gonna get cucked
+
 #pragma once
 
 #if !defined(__UTILS_H__)

@@ -1,4 +1,7 @@
 //#include <iostream>
+//#include <windows.h>
+//
+//#include "matrix.h"
 //
 //using namespace std;
 //
@@ -6,19 +9,18 @@
 //
 //int test()
 //{
-//	if (_ADeterminant = 0)
+//	if (_ADeterminant == 0)
 //	{
-//		std::cout << "Matrix has no inverse." << endl;
+//		MessageBox(nullptr, TEXT("Matrix has no inverse."), TEXT( "Message" ), MB_OK );
 //	}
 //	else
 //	{
 //		int i, j, k, n;
 //		float a[10][10] = { 0 }, d;
 //		n = 4;
-//		cout << "Read all coefficients of matrix with b matrix too " << endl;
 //		for (i = 1; i <= n; i++)
 //			for (j = 1; j <= n; j++)
-//				cin >> a[i][j];
+//				a[i][j] = iMatrixA[i][j];
 //
 //		for (i = 1; i <= n; i++)
 //			for (j = 1; j <= 2 * n; j++)
@@ -35,13 +37,6 @@
 //					a[i][j] = a[i - 1][j];
 //					a[i - 1][j] = d;
 //				}
-//		}
-//		cout << "pivoted output: " << endl;
-//		for (i = 1; i <= n; i++)
-//		{
-//			for (j = 1; j <= n * 2; j++)
-//				cout << a[i][j] << "    ";
-//			cout << endl;
 //		}
 //		/********** reducing to diagonal  matrix ***********/
 //
@@ -63,12 +58,10 @@
 //				a[i][j] = a[i][j] / d;
 //		}
 //
-//		cout << "your solutions: " << endl;
 //		for (i = 1; i <= n; i++)
 //		{
 //			for (j = n + 1; j <= n * 2; j++)
-//				cout << a[i][j] << "    ";
-//			cout << endl;
+//				a[i][j] = iMatrixR[i][j];
 //		}
 //	}
 //}

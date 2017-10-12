@@ -28,10 +28,19 @@ public:
 	void QMultiBA();
 	void QADotB();
 
-	void QAExpo();
-	void QBExpo();
-	void QADeter();
-	void QBDeter();
+//	void QAExpo();
+//	void QBExpo();
+//	void QADeter();
+//	void QBDeter();
+
+	void QMagnitudeA();
+	void QMagnitudeB();
+
+	void QDotProduct();
+
+	void QConjugateA();
+	void QConjugateB()
+
 	void QAInver();
 	void QBInver();
 

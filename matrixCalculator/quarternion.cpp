@@ -1,8 +1,10 @@
-#include "quaternion.h"
+#include <math.h>
+
+#include "quarternion.h"
 #include "utils.h"
 #include "resource.h"
 
-void CQuater::GetQuaterA()
+void CQuarter::GetQuarterA()
 {
 	QuatA.w = utils::ReadFromEditBox(hwnd, IDC_EDIT1);
 	QuatA.x = utils::ReadFromEditBox(hwnd, IDC_EDIT2);
@@ -10,7 +12,7 @@ void CQuater::GetQuaterA()
 	QuatA.z = utils::ReadFromEditBox(hwnd, IDC_EDIT4);
 }
 
-void CQuater::GetQuaterB()
+void CQuarter::GetQuarterB()
 {
 	QuatB.w = utils::ReadFromEditBox(hwnd, IDC_EDIT5);
 	QuatB.x = utils::ReadFromEditBox(hwnd, IDC_EDIT6);
@@ -18,7 +20,7 @@ void CQuater::GetQuaterB()
 	QuatB.z = utils::ReadFromEditBox(hwnd, IDC_EDIT8);
 }
 
-void CQuater::SetQuaterR()
+void CQuarter::SetQuarterR()
 {
 	utils::WriteToEditBox(hwnd, IDC_EDIT10, QuatR.w);
 	utils::WriteToEditBox(hwnd, IDC_EDIT11, QuatR.x);
@@ -26,62 +28,10 @@ void CQuater::SetQuaterR()
 	utils::WriteToEditBox(hwnd, IDC_EDIT13, QuatR.z);
 }
 
-void CQuater::QAdd()
+void CQuarter::QMultiAB()
 {
-	GetQuaterA();
-	GetQuaterB();
-
-	QuatR.w = QuatA.w + QuatB.w;
-	QuatR.x = QuatA.x + QuatB.x;
-	QuatR.y = QuatA.y + QuatB.y;
-	QuatR.z = QuatA.z + QuatB.z;
-
-	SetQuaterR();
-}
-
-void CQuater::QMinusAB()
-{
-	GetQuaterA();
-	GetQuaterB();
-
-	QuatR.w = QuatA.w - QuatB.w;
-	QuatR.x = QuatA.x - QuatB.x;
-	QuatR.y = QuatA.y - QuatB.y;
-	QuatR.z = QuatA.z - QuatB.z;
-
-	SetQuaterR();
-}
-
-void CQuater::QMinusBA()
-{
-	GetQuaterA();
-	GetQuaterB();
-
-	QuatR.w = QuatB.w - QuatA.w;
-	QuatR.x = QuatB.x - QuatA.x;
-	QuatR.y = QuatB.y - QuatA.y;
-	QuatR.z = QuatB.z - QuatA.z;
-
-	SetQuaterR();
-}
-
-void CQuater::QADotB()
-{
-	GetQuaterA();
-	GetQuaterB();
-
-	QuatR.w = QuatA.w * QuatB.w;
-	QuatR.x = QuatA.x * QuatB.x;
-	QuatR.y = QuatA.y * QuatB.y;
-	QuatR.z = QuatA.z * QuatB.z;
-
-	SetQuaterR();
-}
-
-void CQuater::QMultiAB()
-{
-	GetQuaterA();
-	GetQuaterB();
+	GetQuarterA();
+	GetQuarterB();
 
 	QuatR.w = (QuatA.w * QuatB.w) -
 		(QuatA.x * QuatB.x) -
@@ -103,57 +53,57 @@ void CQuater::QMultiAB()
 		(QuatA.y * QuatB.x) +
 		(QuatA.z * QuatB.w);
 
-	SetQuaterR();
+	SetQuarterR();
 }
 
-void CQuater::QMultiBA()
+void CQuarter::QMultiBA()
 {
-	GetQuaterA();
-	GetQuaterA();
+	GetQuarterA();
+	GetQuarterB();
 
 	QuatR.w = (QuatB.w * QuatA.w) -
-		(QuatB.x * QuatA.x) -
-		(QuatB.y * QuatA.y) -
-		(QuatB.z * QuatA.z);
-
+			  (QuatB.x * QuatA.x) -
+			  (QuatB.y * QuatA.y) -
+			  (QuatB.z * QuatA.z);
+				   			 
 	QuatR.x = (QuatB.w * QuatA.x) +
-		(QuatB.x * QuatA.w) +
-		(QuatB.y * QuatA.z) -
-		(QuatB.z * QuatA.y);
-
+			  (QuatB.x * QuatA.w) +
+			  (QuatB.y * QuatA.z) -
+			  (QuatB.z * QuatA.y);
+				   			 
 	QuatR.y = (QuatB.w * QuatA.y) -
-		(QuatB.x * QuatA.z) +
-		(QuatB.y * QuatA.w) +
-		(QuatB.z * QuatA.x);
-
+			  (QuatB.x * QuatA.z) +
+			  (QuatB.y * QuatA.w) +
+			  (QuatB.z * QuatA.x);
+				   			 
 	QuatR.z = (QuatB.w * QuatA.z) +
-		(QuatB.x * QuatA.y) -
-		(QuatB.y * QuatA.x) +
-		(QuatB.z * QuatA.w);
+			  (QuatB.x * QuatA.y) -
+			  (QuatB.y * QuatA.x) +
+			  (QuatB.z * QuatA.w);
 
-	SetQuaterR();
+	SetQuarterR();
 }
 
-void CQuater::QMagnitudeA()
+void CQuarter::QMagnitudeA()
 {
 	int iMagnitude = sqrt(QuatA.w*QuatA.w + QuatA.x*QuatA.x + QuatA.y*QuatA.y + QuatA.z*QuatA.z);
-
+	
 	MessageBox(hwnd, utils::ToWideString(iMagnitude).c_str(), L"Magnitude", MB_OK);
 }
 
-void CQuater::QMagnitudeB()
+void CQuarter::QMagnitudeB()
 {
 	int iMagnitude = sqrt(QuatB.w*QuatB.w + QuatB.x*QuatB.x + QuatB.y*QuatB.y + QuatB.z*QuatB.z);
 
 	MessageBox(hwnd, utils::ToWideString(iMagnitude).c_str(), L"Magnitude", MB_OK);
 }
 
-void CQuater::QDotProduct()
+void CQuarter::QDotProduct()
 {
-	GetQuaterA();
-	GetQuaterA();
+	GetQuarterA();
+	GetQuarterB();
 
-	int iDotProd = (QuatA.w * QuatB.w) +
+	int iDotProd =	(QuatA.w * QuatB.w) +
 		(QuatA.x * QuatB.x) +
 		(QuatA.y * QuatB.y) +
 		(QuatA.z * QuatB.z);
@@ -161,28 +111,28 @@ void CQuater::QDotProduct()
 	MessageBox(hwnd, utils::ToWideString(iDotProd).c_str(), L"DotProduct", MB_OK);
 }
 
-void CQuater::QConjugateA()
+void CQuarter::QConjugateA()
 {
-	GetQuaterA();
-	GetQuaterA();
+	GetQuarterA();
+	GetQuarterB();
 
 	QuatR.w = QuatA.w;
 	QuatR.x = -QuatA.x;
 	QuatR.y = -QuatA.y;
 	QuatR.z = -QuatA.z;
-
-	SetQuaterR();
+	
+	SetQuarterR();
 }
 
-void CQuater::QConjugateB()
+void CQuarter::QConjugateB()
 {
-	GetQuaterA();
-	GetQuaterA();
+	GetQuarterA();
+	GetQuarterB();
 
 	QuatR.w = QuatA.w;
 	QuatR.x = -QuatA.x;
 	QuatR.y = -QuatA.y;
 	QuatR.z = -QuatA.z;
 
-	SetQuaterR();
+	SetQuarterR();
 }

@@ -78,6 +78,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="matrix.h" />
+    <ClInclude Include="quaternion.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
@@ -86,9 +87,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="determinant.cpp" />
-    <ClCompile Include="inverse.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="matrix.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="QAdd.txt" />
+    <Text Include="QDot.txt" />
+    <Text Include="QMinus.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

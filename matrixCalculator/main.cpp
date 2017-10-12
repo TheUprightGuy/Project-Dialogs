@@ -8,7 +8,7 @@
 //
 // File Name	: 
 // Description	: 
-// Author		: Your Name
+// Author		: Corey Freeman and Jack Belton
 // Mail			: your.name@mediadesign.school.nz
 //
 
@@ -97,7 +97,7 @@ LRESULT CALLBACK WindowProc(HWND _hwnd,
 			//open the gaussian dialog
 		case ID_CALCULATOR_QUATERNION:
 		{
-			g_pQuater = new CQuarter(g_hDlgQuaternion);
+			g_pQuater = new CQuater(g_hDlgQuaternion);
 
 			ShowWindow(g_hDlgQuaternion, SW_SHOWNORMAL);
 			break;

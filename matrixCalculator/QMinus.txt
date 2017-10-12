@@ -1,24 +1,25 @@
-// QMinusAB
+void CQuater::QMinusAB()
+{
+	GetQuaterA();
+	GetQuaterB();
 
-GetQuaterA();
-GetQuaterB();
+	QuatR.w = QuatA.w - QuatB.w;
+	QuatR.x = QuatA.x - QuatB.x;
+	QuatR.y = QuatA.y - QuatB.y;
+	QuatR.z = QuatA.z - QuatB.z;
 
-QR_a = QA_a - QB_a;
-QR_b = QA_b - QB_b;
-QR_c = QA_c - QB_c;
-QR_d = QA_d - QB_d;
+	SetQuaterR();
+}
 
-SetQuaterR();
+void CQuater::QMinusBA{}
+{
+	GetQuaterA();
+	GetQuaterB();
 
+	QuatR.w = QuatB.w - QuatA.w;
+	QuatR.x = QuatB.x - QuatA.x;
+	QuatR.y = QuatB.y - QuatA.y;
+	QuatR.z = QuatB.z - QuatA.z;
 
-// QMinusBA
-
-GetQuaterA();
-GetQuaterB();
-
-QR_a = QB_a - QA_a;
-QR_b = QB_b - QA_b;
-QR_c = QB_c - QA_c;
-QR_d = QB_d - QA_d;
-
-SetQuaterR();
+	SetQuaterR();
+}

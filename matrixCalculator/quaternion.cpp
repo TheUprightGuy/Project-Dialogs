@@ -25,3 +25,55 @@ void CQuater::SetQuaterR()
 	utils::WriteToEditBox(hwnd, IDC_EDIT12, QuatR.y);
 	utils::WriteToEditBox(hwnd, IDC_EDIT13, QuatR.z);
 }
+
+void CQuater::QAdd()
+{
+	GetQuaterA();
+	GetQuaterB();
+
+	QuatR.w = QuatA.w + QuatB.w;
+	QuatR.x = QuatA.x + QuatB.x;
+	QuatR.y = QuatA.y + QuatB.y;
+	QuatR.z = QuatA.z + QuatB.z;
+
+	SetQuaterR();
+}
+
+void CQuater::QMinusAB()
+{
+	GetQuaterA();
+	GetQuaterB();
+
+	QuatR.w = QuatA.w - QuatB.w;
+	QuatR.x = QuatA.x - QuatB.x;
+	QuatR.y = QuatA.y - QuatB.y;
+	QuatR.z = QuatA.z - QuatB.z;
+
+	SetQuaterR();
+}
+
+void CQuater::QMinusBA()
+{
+	GetQuaterA();
+	GetQuaterB();
+
+	QuatR.w = QuatB.w - QuatA.w;
+	QuatR.x = QuatB.x - QuatA.x;
+	QuatR.y = QuatB.y - QuatA.y;
+	QuatR.z = QuatB.z - QuatA.z;
+
+	SetQuaterR();
+}
+
+void CQuater::QADotB()
+{
+	GetQuaterA();
+	GetQuaterB();
+
+	QuatR.w = QuatA.w * QuatB.w;
+	QuatR.x = QuatA.x * QuatB.x;
+	QuatR.y = QuatA.y * QuatB.y;
+	QuatR.z = QuatA.z * QuatB.z;
+
+	SetQuaterR();
+}

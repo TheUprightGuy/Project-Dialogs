@@ -17,7 +17,7 @@
 
 
 #include "matrix.h"
-#include "quarternion.h"
+#include "quaternion.h"
 //#include "utils.h"
 #include "resource.h"
 #define WINDOW_CLASS_NAME L"WINCLASS1"
@@ -25,7 +25,7 @@
 HMENU g_hMenu;
 HWND g_hDlgMatrix, g_hDlgTransformation, g_hDlgGaussian, g_hDlgQuaternion, g_hDlgSLERP;
 CMatrix* g_pMatrix = 0;
-CQuarter* g_pQuarter = 0;
+CQuater* g_pQuater = 0;
 
 void GameLoop()
 {
@@ -97,7 +97,7 @@ LRESULT CALLBACK WindowProc(HWND _hwnd,
 			//open the gaussian dialog
 		case ID_CALCULATOR_QUATERNION:
 		{
-			g_pQuarter = new CQuarter(g_hDlgQuaternion);
+			g_pQuater = new CQuarter(g_hDlgQuaternion);
 
 			ShowWindow(g_hDlgQuaternion, SW_SHOWNORMAL);
 			break;
@@ -163,12 +163,12 @@ BOOL CALLBACK MatrixDlgProc(HWND _hwnd,
 		break;
 		case IDCANCEL2: //Inverse A
 		{
-
+			g_pMatrix->MatrixInverse(1);
 		}
 		break;
 		case IDCANCEL3: //Inverse B
 		{
-
+			g_pMatrix->MatrixInverse(0);
 		}
 		break;
 		case IDOK9: //A Transpose
@@ -288,9 +288,88 @@ BOOL CALLBACK QuaternionDlgProc(HWND _hwnd,
 	WPARAM _wparam,
 	LPARAM _lparam)
 {
-
 	switch (_msg)
 	{
+	case WM_COMMAND:
+	{
+		switch (LOWORD(_wparam))
+		{
+		case IDC_BUTTON1: // Add A and B
+		{
+			g_pQuater->QAdd();
+		}
+		break;
+		case IDC_BUTTON5: // A Minus B
+		{
+			g_pQuater->QMinusAB();
+		}
+		break;
+		case IDC_BUTTON6: // B Minus A
+		{
+			g_pQuater->QMinusBA();
+		}
+		break;
+		case IDC_BUTTON2: // A multiplied by B;
+		{
+			g_pQuater->QMultiAB();
+		}
+		break;
+		case IDC_BUTTON7: // B multiplied by A;
+		{
+			g_pQuater->QMultiBA();
+		}
+		break;
+		case IDOK11: // Dot Product of A and B
+		{
+			g_pQuater->QDotProduct();
+		}
+		break;
+		case IDOK3: // Conjugate A
+		{
+			g_pQuater->QConjugateA();
+		}
+		break;
+		case IDOK7: // Conjugate B
+		{
+			g_pQuater->QConjugateB();
+		}
+		break;
+		case IDOK4: // Magnitude A
+		{
+			g_pQuater->QMagnitudeA();
+		}
+		break;
+		case IDOK8: // Magnitude B
+		{
+			g_pQuater->QMagnitudeB();
+		}
+		break;
+		case IDOK: // Inverse of A
+		{
+			g_pQuater->QAInver();
+		}
+		break;
+		case IDCANCEL: // Inverse of B
+		{
+			g_pQuater->QBInver();
+		}
+		break;
+		case IDOK2: // A scaled by t
+		{
+			g_pQuater->QAScal();
+		}
+		break;
+		case IDOK5: // B scaled by t
+		{
+			g_pQuater->QBScal();
+		}
+		break;
+		default:
+			break;
+		}
+		return TRUE;
+		break;
+	}
 	case WM_CLOSE:
 	{
 		ShowWindow(_hwnd, SW_HIDE);

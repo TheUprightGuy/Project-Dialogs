@@ -44,6 +44,7 @@ private:
 	Quaternion QuatA;
 	Quaternion QuatB;
 	Quaternion QuatR;
+
 };
 
 #endif // __QUATERNION_H__

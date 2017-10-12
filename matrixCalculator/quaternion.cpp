@@ -77,3 +77,20 @@ void CQuater::QADotB()
 
 	SetQuaterR();
 }
+
+void CQuater::QAInver()
+{
+	GetQuaterA();
+
+	float QInv = (QuatA.z - QuatA.w - QuatA.x - QuatA.y) / (QuatA.w + QuatA.x + QuatA.y + QuatA.z);
+
+	};
+}
+
+void CQuater::QBInver()
+{
+	GetQuaterB();
+
+	float QInv = (QuatB.z - QuatB.w - QuatB.x - QuatB.y) / (QuatB.w + QuatB.x + QuatB.y + QuatB.z);
+
+}

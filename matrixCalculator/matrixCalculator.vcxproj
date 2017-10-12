@@ -94,6 +94,7 @@
   <ItemGroup>
     <Text Include="QAdd.txt" />
     <Text Include="QDot.txt" />
+    <Text Include="QInverse.txt" />
     <Text Include="QMinus.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

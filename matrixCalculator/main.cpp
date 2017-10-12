@@ -406,6 +406,17 @@ int WINAPI WinMain(HINSTANCE _hInstance,
 
 	// Return to Windows like this...
 	return (static_cast<int>(msg.wParam));
+
+	float QInv = (QuatA.z - QuatA.w - QuatA.x - QuatA.y) / (QuatA.w + QuatA.x + QuatA.y + QuatA.z);
+	QInv = 0;
+
+	MessageBoxA(NULL, "Wake Up!", "Alert!", MB_OK | MB_ICONEXCLAMATION);
+	int WINAPI MessageBox{
+		nullptr,
+		QInv,
+		TEXT("Inverse"),
+		MB_OK
+	};
 }
 
 

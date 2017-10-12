@@ -1,0 +1,17 @@
+void CQuaternion::QAInver()
+{
+	GetQuaterA();
+
+	float QInv = ( QuatA.z - QuatA.w - QuatA.x - QuatA.y ) / ( QuatA.w + QuatA.x + QuatA.y + QuatA.z );
+
+	MessageBox{LPCTSTR QInv, LPCTSTR "Quaternion A Inverse", UINT MB_OK};
+}
+
+void CQuaternion::QAInver()
+{
+	GetQuaterB();
+
+	float QInv = ( QuatB.z - QuatB.w - QuatB.x - QuatB.y ) / ( QuatB.w + QuatB.x + QuatB.y + QuatB.z );
+
+	MessageBox{LPCTSTR QInv, LPCTSTR "Quaternion B Inverse", UINT MB_OK};
+}

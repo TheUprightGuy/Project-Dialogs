@@ -43,10 +43,7 @@
     <ClCompile Include="determinant.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="inverse.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="quarternion.cpp">
+    <ClCompile Include="quaternion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

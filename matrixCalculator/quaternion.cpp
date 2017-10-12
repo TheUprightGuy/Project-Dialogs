@@ -1,8 +1,8 @@
-#include "quarternion.h"
+#include "quaternion.h"
 #include "utils.h"
 #include "resource.h"
 
-void CQuarter::GetQuarterA()
+void CQuater::GetQuaterA()
 {
 	QuatA.w = utils::ReadFromEditBox(hwnd, IDC_EDIT1);
 	QuatA.x = utils::ReadFromEditBox(hwnd, IDC_EDIT2);
@@ -10,7 +10,7 @@ void CQuarter::GetQuarterA()
 	QuatA.z = utils::ReadFromEditBox(hwnd, IDC_EDIT4);
 }
 
-void CQuarter::GetQuarterB()
+void CQuater::GetQuaterB()
 {
 	QuatB.w = utils::ReadFromEditBox(hwnd, IDC_EDIT5);
 	QuatB.x = utils::ReadFromEditBox(hwnd, IDC_EDIT6);
@@ -18,7 +18,7 @@ void CQuarter::GetQuarterB()
 	QuatB.z = utils::ReadFromEditBox(hwnd, IDC_EDIT8);
 }
 
-void CQuarter::SetQuarterR()
+void CQuater::SetQuaterR()
 {
 	utils::WriteToEditBox(hwnd, IDC_EDIT10, QuatR.w);
 	utils::WriteToEditBox(hwnd, IDC_EDIT11, QuatR.x);

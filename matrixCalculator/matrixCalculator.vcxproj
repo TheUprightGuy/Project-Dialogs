@@ -87,10 +87,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="determinant.cpp" />
-    <ClCompile Include="inverse.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="matrix.cpp" />
-    <ClCompile Include="quarternion.cpp" />
+    <ClCompile Include="quaternion.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="QAdd.txt" />

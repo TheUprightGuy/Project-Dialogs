@@ -77,3 +77,112 @@ void CQuater::QADotB()
 
 	SetQuaterR();
 }
+
+void CQuater::QMultiAB()
+{
+	GetQuaterA();
+	GetQuaterB();
+
+	QuatR.w = (QuatA.w * QuatB.w) -
+		(QuatA.x * QuatB.x) -
+		(QuatA.y * QuatB.y) -
+		(QuatA.z * QuatB.z);
+
+	QuatR.x = (QuatA.w * QuatB.x) +
+		(QuatA.x * QuatB.w) +
+		(QuatA.y * QuatB.z) -
+		(QuatA.z * QuatB.y);
+
+	QuatR.y = (QuatA.w * QuatB.y) -
+		(QuatA.x * QuatB.z) +
+		(QuatA.y * QuatB.w) +
+		(QuatA.z * QuatB.x);
+
+	QuatR.z = (QuatA.w * QuatB.z) +
+		(QuatA.x * QuatB.y) -
+		(QuatA.y * QuatB.x) +
+		(QuatA.z * QuatB.w);
+
+	SetQuaterR();
+}
+
+void CQuater::QMultiBA()
+{
+	GetQuaterA();
+	GetQuaterA();
+
+	QuatR.w = (QuatB.w * QuatA.w) -
+		(QuatB.x * QuatA.x) -
+		(QuatB.y * QuatA.y) -
+		(QuatB.z * QuatA.z);
+
+	QuatR.x = (QuatB.w * QuatA.x) +
+		(QuatB.x * QuatA.w) +
+		(QuatB.y * QuatA.z) -
+		(QuatB.z * QuatA.y);
+
+	QuatR.y = (QuatB.w * QuatA.y) -
+		(QuatB.x * QuatA.z) +
+		(QuatB.y * QuatA.w) +
+		(QuatB.z * QuatA.x);
+
+	QuatR.z = (QuatB.w * QuatA.z) +
+		(QuatB.x * QuatA.y) -
+		(QuatB.y * QuatA.x) +
+		(QuatB.z * QuatA.w);
+
+	SetQuaterR();
+}
+
+void CQuater::QMagnitudeA()
+{
+	int iMagnitude = sqrt(QuatA.w*QuatA.w + QuatA.x*QuatA.x + QuatA.y*QuatA.y + QuatA.z*QuatA.z);
+
+	MessageBox(hwnd, utils::ToWideString(iMagnitude).c_str(), L"Magnitude", MB_OK);
+}
+
+void CQuater::QMagnitudeB()
+{
+	int iMagnitude = sqrt(QuatB.w*QuatB.w + QuatB.x*QuatB.x + QuatB.y*QuatB.y + QuatB.z*QuatB.z);
+
+	MessageBox(hwnd, utils::ToWideString(iMagnitude).c_str(), L"Magnitude", MB_OK);
+}
+
+void CQuater::QDotProduct()
+{
+	GetQuaterA();
+	GetQuaterA();
+
+	int iDotProd = (QuatA.w * QuatB.w) +
+		(QuatA.x * QuatB.x) +
+		(QuatA.y * QuatB.y) +
+		(QuatA.z * QuatB.z);
+
+	MessageBox(hwnd, utils::ToWideString(iDotProd).c_str(), L"DotProduct", MB_OK);
+}
+
+void CQuater::QConjugateA()
+{
+	GetQuaterA();
+	GetQuaterA();
+
+	QuatR.w = QuatA.w;
+	QuatR.x = -QuatA.x;
+	QuatR.y = -QuatA.y;
+	QuatR.z = -QuatA.z;
+
+	SetQuaterR();
+}
+
+void CQuater::QConjugateB()
+{
+	GetQuaterA();
+	GetQuaterA();
+
+	QuatR.w = QuatA.w;
+	QuatR.x = -QuatA.x;
+	QuatR.y = -QuatA.y;
+	QuatR.z = -QuatA.z;
+
+	SetQuaterR();
+}

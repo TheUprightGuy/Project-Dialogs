@@ -1,0 +1,11 @@
+dot = left.x * right.x + left.y * right.y + left.z * right.z + left.w * right.w
+
+GetQuaterA();
+GetQuaterB();
+
+QR_a = QA_a * QB_a;
+QR_b = QA_b * QB_b;
+QR_c = QA_c * QB_c;
+QR_d = QA_d * QB_d;
+
+SetQuaterR();

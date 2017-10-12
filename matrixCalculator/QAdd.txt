@@ -1,0 +1,11 @@
+// QAdd
+
+GetQuaterA();
+GetQuaterB();
+
+QR_a = QA_a + QB_a;
+QR_b = QA_b + QB_b;
+QR_c = QA_c + QB_c;
+QR_d = QA_d + QB_d;
+
+SetQuaterR();

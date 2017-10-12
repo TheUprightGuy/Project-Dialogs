@@ -15,7 +15,6 @@ int test()
 		int i, j, k, n;
 		float a[10][10] = { 0 }, d;
 		n = 4;
-		cout << "Read all coefficients of matrix with b matrix too " << endl;
 		for (i = 1; i <= n; i++)
 			for (j = 1; j <= n; j++)
 				cin >> a[i][j];

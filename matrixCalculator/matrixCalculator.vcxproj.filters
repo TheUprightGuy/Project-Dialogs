@@ -24,7 +24,7 @@
     <ClInclude Include="matrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="quarternion.h">
+    <ClInclude Include="quaternion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -43,11 +43,19 @@
     <ClCompile Include="determinant.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="inverse.cpp">
+    <ClCompile Include="quaternion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="quarternion.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="QAdd.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="QMinus.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="QDot.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

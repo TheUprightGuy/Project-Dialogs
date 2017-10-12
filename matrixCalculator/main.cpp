@@ -180,12 +180,12 @@ BOOL CALLBACK MatrixDlgProc(HWND _hwnd,
 		break;
 		case IDOK3: // |A|
 		{
-
+			g_pMatrix->Get4DMatrixDetA();
 		}
 		break;
 		case IDOK7: // |B|
 		{
-
+			g_pMatrix->Get4DMatrixDetB();
 		}
 		break;
 		case IDOK4: // A -> I

@@ -43,6 +43,12 @@
     <ClCompile Include="determinant.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="inverse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="quarternion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="QAdd.txt">

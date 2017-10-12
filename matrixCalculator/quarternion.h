@@ -27,14 +27,6 @@ public:
 	void QMultiAB();
 	void QMultiBA();
 
-	void QMagnitudeA();
-	void QMagnitudeB();
-
-	void QDotProduct();
-
-	void QConjugateA();
-	void QConjugateB();
-
 private:
 	HWND hwnd;
 

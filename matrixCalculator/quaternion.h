@@ -26,12 +26,6 @@ public:
 	void QMinusBA();
 	void QMultiAB();
 	void QMultiBA();
-	void QADotB();
-
-//	void QAExpo();
-//	void QBExpo();
-//	void QADeter();
-//	void QBDeter();
 
 	void QMagnitudeA();
 	void QMagnitudeB();
@@ -39,7 +33,7 @@ public:
 	void QDotProduct();
 
 	void QConjugateA();
-	void QConjugateB()
+	void QConjugateB();
 
 	void QAInver();
 	void QBInver();

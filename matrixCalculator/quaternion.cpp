@@ -65,19 +65,6 @@ void CQuater::QMinusBA()
 	SetQuaterR();
 }
 
-void CQuater::QADotB()
-{
-	GetQuaterA();
-	GetQuaterB();
-
-	QuatR.w = QuatA.w * QuatB.w;
-	QuatR.x = QuatA.x * QuatB.x;
-	QuatR.y = QuatA.y * QuatB.y;
-	QuatR.z = QuatA.z * QuatB.z;
-
-	SetQuaterR();
-}
-
 void CQuater::QMultiAB()
 {
 	GetQuaterA();
@@ -185,4 +172,24 @@ void CQuater::QConjugateB()
 	QuatR.z = -QuatA.z;
 
 	SetQuaterR();
+}
+
+void CQuater::QAInver()
+{
+	GetQuaterA();
+
+	float QNorm = (QuatA.w * QuatA.w + QuatA.x * QuatA.x + QuatA.y * QuatA.y + QuatA.z * QuatA.z);
+	float QInv = (QuatA.z / QNorm - QuatA.w / QNorm - QuatA.x / QNorm - QuatA.y / QNorm);
+
+	MessageBox( hwnd, utils::ToWideString(QInv).c_str(), L"Quaternion A Inverse", MB_OK );
+}
+
+void CQuater::QBInver()
+{
+	GetQuaterB();
+
+	float QNorm = (QuatB.w * QuatB.w + QuatB.x * QuatB.x + QuatB.y * QuatB.y + QuatB.z * QuatB.z);
+	float QInv = (QuatB.z / QNorm - QuatB.w / QNorm - QuatB.x / QNorm - QuatB.y / QNorm);
+
+	MessageBox( hwnd, utils::ToWideString(QInv).c_str(), L"Quaternion B Inverse", MB_OK );
 }

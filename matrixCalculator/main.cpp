@@ -17,14 +17,15 @@
 
 
 #include "matrix.h"
+#include "quarternion.h"
 //#include "utils.h"
 #include "resource.h"
-
 #define WINDOW_CLASS_NAME L"WINCLASS1"
 
 HMENU g_hMenu;
 HWND g_hDlgMatrix, g_hDlgTransformation, g_hDlgGaussian, g_hDlgQuaternion, g_hDlgSLERP;
 CMatrix* g_pMatrix = 0;
+CQuarter* g_pQuarter = 0;
 
 void GameLoop()
 {
@@ -96,6 +97,8 @@ LRESULT CALLBACK WindowProc(HWND _hwnd,
 			//open the gaussian dialog
 		case ID_CALCULATOR_QUATERNION:
 		{
+			g_pQuarter = new CQuarter(g_hDlgQuaternion);
+
 			ShowWindow(g_hDlgQuaternion, SW_SHOWNORMAL);
 			break;
 		}

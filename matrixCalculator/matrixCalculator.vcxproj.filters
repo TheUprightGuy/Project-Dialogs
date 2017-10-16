@@ -44,18 +44,4 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="QAdd.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="QMinus.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="QDot.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="QInverse.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-  </ItemGroup>
 </Project>

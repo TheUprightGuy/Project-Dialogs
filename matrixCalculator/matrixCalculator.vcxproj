@@ -90,12 +90,6 @@
     <ClCompile Include="matrix.cpp" />
     <ClCompile Include="quaternion.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="QAdd.txt" />
-    <Text Include="QDot.txt" />
-    <Text Include="QInverse.txt" />
-    <Text Include="QMinus.txt" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

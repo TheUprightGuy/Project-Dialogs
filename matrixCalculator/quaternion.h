@@ -2,6 +2,7 @@
 #define __QUATERNION_H__
 
 #include <windows.h>
+#include "utils.h"
 
 typedef struct QUAT
 {
@@ -14,7 +15,7 @@ typedef struct QUAT
 class CQuater
 {
 public:
-	CQuater(HWND _hwnd) { _hwnd = hwnd; }
+	CQuater(HWND _hwnd) { hwnd = _hwnd; }
 	~CQuater();
 
 	void GetQuaterA();
@@ -38,8 +39,8 @@ public:
 	void QAInver();
 	void QBInver();
 
-	void QAScal();
-	void QBScal();
+//	void QAScal();
+//	void QBScal();
 
 private:
 	HWND hwnd;

@@ -39,7 +39,7 @@
 
 #define VALIDATE(a) if (!a) return (false)
 
-namespace utils
+namespace //utils
 {
 	template<typename T>
 	std::string ToString(const T& _value)

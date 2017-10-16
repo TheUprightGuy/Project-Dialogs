@@ -86,7 +86,6 @@
     <ResourceCompile Include="matrixCalculator.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="determinant.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="matrix.cpp" />
     <ClCompile Include="quaternion.cpp" />

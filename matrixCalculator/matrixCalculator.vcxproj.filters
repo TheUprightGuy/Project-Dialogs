@@ -40,9 +40,6 @@
     <ClCompile Include="matrix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="determinant.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="quaternion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

@@ -27,6 +27,9 @@
     <ClInclude Include="quaternion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GausElim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="matrixCalculator.rc">

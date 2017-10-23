@@ -354,16 +354,16 @@ BOOL CALLBACK QuaternionDlgProc(HWND _hwnd,
 			g_pQuater->QBInver();
 		}
 		break;
-		case IDOK2: // A scaled by t
-		{
-			g_pQuater->QAScal();
-		}
-		break;
-		case IDOK5: // B scaled by t
-		{
-			g_pQuater->QBScal();
-		}
-		break;
+		//case IDOK2: // A scaled by t
+		//{
+		//	g_pQuater->QAScal();
+		//}
+		//break;
+		//case IDOK5: // B scaled by t
+		//{
+		//	g_pQuater->QBScal();
+		//}
+		//break;
 		default:
 			break;
 		}

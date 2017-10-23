@@ -33,6 +33,7 @@ private:
 
 	int i3dMatrix[3][3];
 	int iMatrixR[4][4];
+	
 	HWND hwnd;
 };
 

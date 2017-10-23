@@ -13,6 +13,9 @@ public:
 
 	void SetWindow(HWND _hwnd) { m_hwnd = _hwnd; }
 
+	void GetMatrix();
+	void SetMatrix();
+
 	void RowMult();
 	void RowSwap();
 	void MultAdd();

@@ -18,6 +18,7 @@
 
 #include "matrix.h"
 #include "quaternion.h"
+
 //#include "utils.h"
 #include "resource.h"
 #define WINDOW_CLASS_NAME L"WINCLASS1"
@@ -97,9 +98,9 @@ LRESULT CALLBACK WindowProc(HWND _hwnd,
 			//open the gaussian dialog
 		case ID_CALCULATOR_QUATERNION:
 		{
-			g_pQuater = new CQuater(g_hDlgQuaternion);
-
 			ShowWindow(g_hDlgQuaternion, SW_SHOWNORMAL);
+
+			g_pQuater = new CQuater(g_hDlgQuaternion);
 			break;
 		}
 			//open the quaternion dialog
@@ -354,16 +355,16 @@ BOOL CALLBACK QuaternionDlgProc(HWND _hwnd,
 			g_pQuater->QBInver();
 		}
 		break;
-		//case IDOK2: // A scaled by t
-		//{
-		//	g_pQuater->QAScal();
-		//}
-		//break;
-		//case IDOK5: // B scaled by t
-		//{
-		//	g_pQuater->QBScal();
-		//}
-		//break;
+		case IDOK2: // A scaled by t
+		{
+//			g_pQuater->QAScal();
+		}
+		break;
+		case IDOK5: // B scaled by t
+		{
+//			g_pQuater->QBScal();
+		}
+		break;
 		default:
 			break;
 		}

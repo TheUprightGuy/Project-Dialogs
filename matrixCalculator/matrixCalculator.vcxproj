@@ -77,6 +77,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="GausElim.h" />
     <ClInclude Include="matrix.h" />
     <ClInclude Include="quaternion.h" />
     <ClInclude Include="resource.h" />
@@ -86,16 +87,10 @@
     <ResourceCompile Include="matrixCalculator.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="determinant.cpp" />
+    <ClCompile Include="GausElim.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="matrix.cpp" />
     <ClCompile Include="quaternion.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="QAdd.txt" />
-    <Text Include="QDot.txt" />
-    <Text Include="QInverse.txt" />
-    <Text Include="QMinus.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -24,48 +24,48 @@ CMatrix::~CMatrix()
 
 void CMatrix::GetMatrixA()
 {
-	iMatrixA[0][0] = static_cast<int>(utils::ReadFromEditBox(hwnd, IDC_EDIT_A11));
-	iMatrixA[0][1] = static_cast<int>(utils::ReadFromEditBox(hwnd, IDC_EDIT_A12));
-	iMatrixA[0][2] = utils::ReadFromEditBox(hwnd, IDC_EDIT_A13);
-	iMatrixA[0][3] = utils::ReadFromEditBox(hwnd, IDC_EDIT_A14);
+	iMatrixA[0][0] = static_cast<int>(ReadFromEditBox(hwnd, IDC_EDIT_A11));
+	iMatrixA[0][1] = static_cast<int>(ReadFromEditBox(hwnd, IDC_EDIT_A12));
+	iMatrixA[0][2] = ReadFromEditBox(hwnd, IDC_EDIT_A13);
+	iMatrixA[0][3] = ReadFromEditBox(hwnd, IDC_EDIT_A14);
 				
-	iMatrixA[1][0] = utils::ReadFromEditBox(hwnd, IDC_EDIT_A21);
-	iMatrixA[1][1] = utils::ReadFromEditBox(hwnd, IDC_EDIT_A22);
-	iMatrixA[1][2] = utils::ReadFromEditBox(hwnd, IDC_EDIT_A23);
-	iMatrixA[1][3] = utils::ReadFromEditBox(hwnd, IDC_EDIT_A24);
+	iMatrixA[1][0] = ReadFromEditBox(hwnd, IDC_EDIT_A21);
+	iMatrixA[1][1] = ReadFromEditBox(hwnd, IDC_EDIT_A22);
+	iMatrixA[1][2] = ReadFromEditBox(hwnd, IDC_EDIT_A23);
+	iMatrixA[1][3] = ReadFromEditBox(hwnd, IDC_EDIT_A24);
 				
-	iMatrixA[2][0] = utils::ReadFromEditBox(hwnd, IDC_EDIT_A31);
-	iMatrixA[2][1] = utils::ReadFromEditBox(hwnd, IDC_EDIT_A32);
-	iMatrixA[2][2] = utils::ReadFromEditBox(hwnd, IDC_EDIT_A33);
-	iMatrixA[2][3] = utils::ReadFromEditBox(hwnd, IDC_EDIT_A34);
+	iMatrixA[2][0] = ReadFromEditBox(hwnd, IDC_EDIT_A31);
+	iMatrixA[2][1] = ReadFromEditBox(hwnd, IDC_EDIT_A32);
+	iMatrixA[2][2] = ReadFromEditBox(hwnd, IDC_EDIT_A33);
+	iMatrixA[2][3] = ReadFromEditBox(hwnd, IDC_EDIT_A34);
 					
-	iMatrixA[3][0] = utils::ReadFromEditBox(hwnd, IDC_EDIT_A41);
-	iMatrixA[3][1] = utils::ReadFromEditBox(hwnd, IDC_EDIT_A42);
-	iMatrixA[3][2] = utils::ReadFromEditBox(hwnd, IDC_EDIT_A43);
-	iMatrixA[3][3] = utils::ReadFromEditBox(hwnd, IDC_EDIT_A44);
+	iMatrixA[3][0] = ReadFromEditBox(hwnd, IDC_EDIT_A41);
+	iMatrixA[3][1] = ReadFromEditBox(hwnd, IDC_EDIT_A42);
+	iMatrixA[3][2] = ReadFromEditBox(hwnd, IDC_EDIT_A43);
+	iMatrixA[3][3] = ReadFromEditBox(hwnd, IDC_EDIT_A44);
 }
 
 void CMatrix::GetMatrixB()
 {
-	iMatrixB[0][0] = utils::ReadFromEditBox(hwnd, IDC_EDIT_B11);
-	iMatrixB[0][1] = utils::ReadFromEditBox(hwnd, IDC_EDIT_B12);
-	iMatrixB[0][2] = utils::ReadFromEditBox(hwnd, IDC_EDIT_B13);
-	iMatrixB[0][3] = utils::ReadFromEditBox(hwnd, IDC_EDIT_B14);
+	iMatrixB[0][0] = ReadFromEditBox(hwnd, IDC_EDIT_B11);
+	iMatrixB[0][1] = ReadFromEditBox(hwnd, IDC_EDIT_B12);
+	iMatrixB[0][2] = ReadFromEditBox(hwnd, IDC_EDIT_B13);
+	iMatrixB[0][3] = ReadFromEditBox(hwnd, IDC_EDIT_B14);
 		   											 
-	iMatrixB[1][0] = utils::ReadFromEditBox(hwnd, IDC_EDIT_B21);
-	iMatrixB[1][1] = utils::ReadFromEditBox(hwnd, IDC_EDIT_B22);
-	iMatrixB[1][2] = utils::ReadFromEditBox(hwnd, IDC_EDIT_B23);
-	iMatrixB[1][3] = utils::ReadFromEditBox(hwnd, IDC_EDIT_B24);
+	iMatrixB[1][0] = ReadFromEditBox(hwnd, IDC_EDIT_B21);
+	iMatrixB[1][1] = ReadFromEditBox(hwnd, IDC_EDIT_B22);
+	iMatrixB[1][2] = ReadFromEditBox(hwnd, IDC_EDIT_B23);
+	iMatrixB[1][3] = ReadFromEditBox(hwnd, IDC_EDIT_B24);
 		   											 
-	iMatrixB[2][0] = utils::ReadFromEditBox(hwnd, IDC_EDIT_B31);
-	iMatrixB[2][1] = utils::ReadFromEditBox(hwnd, IDC_EDIT_B32);
-	iMatrixB[2][2] = utils::ReadFromEditBox(hwnd, IDC_EDIT_B33);
-	iMatrixB[2][3] = utils::ReadFromEditBox(hwnd, IDC_EDIT_B34);
+	iMatrixB[2][0] = ReadFromEditBox(hwnd, IDC_EDIT_B31);
+	iMatrixB[2][1] = ReadFromEditBox(hwnd, IDC_EDIT_B32);
+	iMatrixB[2][2] = ReadFromEditBox(hwnd, IDC_EDIT_B33);
+	iMatrixB[2][3] = ReadFromEditBox(hwnd, IDC_EDIT_B34);
 		   											 
-	iMatrixB[3][0] = utils::ReadFromEditBox(hwnd, IDC_EDIT_B41);
-	iMatrixB[3][1] = utils::ReadFromEditBox(hwnd, IDC_EDIT_B42);
-	iMatrixB[3][2] = utils::ReadFromEditBox(hwnd, IDC_EDIT_B43);
-	iMatrixB[3][3] = utils::ReadFromEditBox(hwnd, IDC_EDIT_B44);
+	iMatrixB[3][0] = ReadFromEditBox(hwnd, IDC_EDIT_B41);
+	iMatrixB[3][1] = ReadFromEditBox(hwnd, IDC_EDIT_B42);
+	iMatrixB[3][2] = ReadFromEditBox(hwnd, IDC_EDIT_B43);
+	iMatrixB[3][3] = ReadFromEditBox(hwnd, IDC_EDIT_B44);
 }
 
 int CMatrix::Get3DMatrixDet()
@@ -165,7 +165,7 @@ int CMatrix::Get4DMatrixDetA()
 
 	int iFinal = (iTotals[0]) - (iTotals[1]) + (iTotals[2]) - (iTotals[3]);
 	return (iFinal);
-	utils::WriteToEditBox(hwnd, IDC_EDIT_DetA, iFinal);
+	WriteToEditBox(hwnd, IDC_EDIT_DetA, iFinal);
 }
 
 int CMatrix::Get4DMatrixDetB()
@@ -217,7 +217,7 @@ int CMatrix::Get4DMatrixDetB()
 	int iFinal = (iTotals[0]) - (iTotals[1]) + (iTotals[2]) - (iTotals[3]);
 
 	return (iFinal);
-	utils::WriteToEditBox(hwnd, IDC_EDIT_DetB, iFinal);
+	WriteToEditBox(hwnd, IDC_EDIT_DetB, iFinal);
 }
 
 void CMatrix::ScalarMult(bool bAorB)
@@ -228,7 +228,7 @@ void CMatrix::ScalarMult(bool bAorB)
 	if (bAorB) //Scalar A
 	{
 
-		int iScaler = static_cast<int>(utils::ReadFromEditBox(hwnd, IDC_EDIT_AScaled));
+		int iScaler = static_cast<int>(ReadFromEditBox(hwnd, IDC_EDIT_AScaled));
 		GetMatrixA();
 		for (int i = 0; i < 4; i++)
 		{
@@ -240,7 +240,7 @@ void CMatrix::ScalarMult(bool bAorB)
 	}
 	else  //Scalar B
 	{
-		int iScaler = utils::ReadFromEditBox(hwnd, IDC_EDIT_BScaled);
+		int iScaler = ReadFromEditBox(hwnd, IDC_EDIT_BScaled);
 		GetMatrixB();
 		for (int i = 0; i < 4; i++)
 		{
@@ -290,17 +290,17 @@ void CMatrix::MatrixToI(bool bAorB)
 {
 	if (bAorB)
 	{
-		utils::WriteToEditBox(hwnd, IDC_EDIT_A11, 1);
-		utils::WriteToEditBox(hwnd, IDC_EDIT_A22, 1);
-		utils::WriteToEditBox(hwnd, IDC_EDIT_A33, 1);
-		utils::WriteToEditBox(hwnd, IDC_EDIT_A44, 1);
+		WriteToEditBox(hwnd, IDC_EDIT_A11, 1);
+		WriteToEditBox(hwnd, IDC_EDIT_A22, 1);
+		WriteToEditBox(hwnd, IDC_EDIT_A33, 1);
+		WriteToEditBox(hwnd, IDC_EDIT_A44, 1);
 	}
 	else
 	{
-		utils::WriteToEditBox(hwnd, IDC_EDIT_B11, 1);
-		utils::WriteToEditBox(hwnd, IDC_EDIT_B22, 1);
-		utils::WriteToEditBox(hwnd, IDC_EDIT_B33, 1);
-		utils::WriteToEditBox(hwnd, IDC_EDIT_B44, 1);
+		WriteToEditBox(hwnd, IDC_EDIT_B11, 1);
+		WriteToEditBox(hwnd, IDC_EDIT_B22, 1);
+		WriteToEditBox(hwnd, IDC_EDIT_B33, 1);
+		WriteToEditBox(hwnd, IDC_EDIT_B44, 1);
 	}
 }
 
@@ -471,25 +471,25 @@ void CMatrix::MatrixSub()
 
 void CMatrix::WriteToMatrixR()
 {
-	utils::WriteToEditBox(hwnd, IDC_EDIT_R11, iMatrixR[0][0]);
-	utils::WriteToEditBox(hwnd, IDC_EDIT_R12, iMatrixR[0][1]);
-	utils::WriteToEditBox(hwnd, IDC_EDIT_R13, iMatrixR[0][2]);
-	utils::WriteToEditBox(hwnd, IDC_EDIT_R14, iMatrixR[0][3]);
+	WriteToEditBox(hwnd, IDC_EDIT_R11, iMatrixR[0][0]);
+	WriteToEditBox(hwnd, IDC_EDIT_R12, iMatrixR[0][1]);
+	WriteToEditBox(hwnd, IDC_EDIT_R13, iMatrixR[0][2]);
+	WriteToEditBox(hwnd, IDC_EDIT_R14, iMatrixR[0][3]);
 
-	utils::WriteToEditBox(hwnd, IDC_EDIT_R21, iMatrixR[1][0]);
-	utils::WriteToEditBox(hwnd, IDC_EDIT_R22, iMatrixR[1][1]);
-	utils::WriteToEditBox(hwnd, IDC_EDIT_R23, iMatrixR[1][2]);
-	utils::WriteToEditBox(hwnd, IDC_EDIT_R24, iMatrixR[1][3]);
+	WriteToEditBox(hwnd, IDC_EDIT_R21, iMatrixR[1][0]);
+	WriteToEditBox(hwnd, IDC_EDIT_R22, iMatrixR[1][1]);
+	WriteToEditBox(hwnd, IDC_EDIT_R23, iMatrixR[1][2]);
+	WriteToEditBox(hwnd, IDC_EDIT_R24, iMatrixR[1][3]);
 
-	utils::WriteToEditBox(hwnd, IDC_EDIT_R31, iMatrixR[2][0]);
-	utils::WriteToEditBox(hwnd, IDC_EDIT_R32, iMatrixR[2][1]);
-	utils::WriteToEditBox(hwnd, IDC_EDIT_R33, iMatrixR[2][2]);
-	utils::WriteToEditBox(hwnd, IDC_EDIT_R34, iMatrixR[2][3]);
+	WriteToEditBox(hwnd, IDC_EDIT_R31, iMatrixR[2][0]);
+	WriteToEditBox(hwnd, IDC_EDIT_R32, iMatrixR[2][1]);
+	WriteToEditBox(hwnd, IDC_EDIT_R33, iMatrixR[2][2]);
+	WriteToEditBox(hwnd, IDC_EDIT_R34, iMatrixR[2][3]);
 
-	utils::WriteToEditBox(hwnd, IDC_EDIT_R41, iMatrixR[3][0]);
-	utils::WriteToEditBox(hwnd, IDC_EDIT_R42, iMatrixR[3][1]);
-	utils::WriteToEditBox(hwnd, IDC_EDIT_R43, iMatrixR[3][2]);
-	utils::WriteToEditBox(hwnd, IDC_EDIT_R44, iMatrixR[3][3]);
+	WriteToEditBox(hwnd, IDC_EDIT_R41, iMatrixR[3][0]);
+	WriteToEditBox(hwnd, IDC_EDIT_R42, iMatrixR[3][1]);
+	WriteToEditBox(hwnd, IDC_EDIT_R43, iMatrixR[3][2]);
+	WriteToEditBox(hwnd, IDC_EDIT_R44, iMatrixR[3][3]);
 }									
 
 

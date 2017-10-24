@@ -77,8 +77,14 @@ void CGausElim::RowMult()
 	m_iMatrixR[2][2] = m_iMatrixA[2][2];
 	m_iMatrixR[2][3] = m_iMatrixA[2][3];
 
-	int i = ReadFromEditBox(m_hwnd, IDC_EDIT13);
-	int j = ReadFromEditBox(m_hwnd, IDC_EDIT14);
+	int i = ReadFromEditBox(m_hwnd, IDC_EDIT14);
+	int j;
+	if ((j = ReadFromEditBox(m_hwnd, IDC_EDIT13) + 1) > 3)
+	{
+		MessageBox(m_hwnd, L"Row Does not exist", L"GausElim", MB_OK);
+		return;
+	}
+	
 
 	m_iMatrixR[j][0] = m_iMatrixA[j][0] * i;
 	m_iMatrixR[j][1] = m_iMatrixA[j][1] * i;
@@ -107,8 +113,19 @@ void CGausElim::RowSwap()
 	m_iMatrixR[2][2] = m_iMatrixA[2][2];
 	m_iMatrixR[2][3] = m_iMatrixA[2][3];
 
-	int i = ReadFromEditBox(m_hwnd, IDC_EDIT16);
-	int j = ReadFromEditBox(m_hwnd, IDC_EDIT17);
+	int i;
+	if ((i = ReadFromEditBox(m_hwnd, IDC_EDIT16) + 1) > 3) //Check cases for rows that do not exist 
+	{
+		MessageBox(m_hwnd, L"Row Does not exist", L"GausElim", MB_OK);
+		return;
+	}
+
+	int j;
+	if ((j = ReadFromEditBox(m_hwnd, IDC_EDIT17) + 1) > 3)
+	{
+		MessageBox(m_hwnd, L"Row Does not exist", L"GausElim", MB_OK);
+		return;
+	}
 
 	m_iMatrixR[i][0] = m_iMatrixA[j][0];
 	m_iMatrixR[i][1] = m_iMatrixA[j][1];
@@ -158,4 +175,42 @@ void CGausElim::MultAdd()
 	m_iMatrixR[j][3] = m_iMatrixM[0][3] + m_iMatrixA[k][3];
 
 	SetMatrix();
+}
+
+bool CGausElim::CheckForRowEchelon()
+{
+	if ((m_iMatrixA[1][0] == 0) && (m_iMatrixA[2][0] == 0) && (m_iMatrixA[2][1] == 0))
+	{
+		MessageBox(m_hwnd, L"Row Echelon Form", L"GausElim", MB_OK);
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+bool CGausElim::CheckForRowEchelonRedux()
+{
+	bool bDiag =
+		(m_iMatrixA[0][0] == 1) &&
+		(m_iMatrixA[1][1] == 1) &&
+		(m_iMatrixA[2][2] == 1);
+
+	bool bNonDiag =
+		(m_iMatrixA[1][0] == 1) &&
+		(m_iMatrixA[1][2] == 1) &&
+		(m_iMatrixA[1][3] == 1) &&
+
+		(m_iMatrixA[2][0] == 1) &&
+		(m_iMatrixA[2][1] == 1) &&
+		(m_iMatrixA[2][2] == 1);
+
+
+	if (bDiag && bNonDiag)
+	{
+		MessageBox(m_hwnd, L"Reduced Row Echelon Form", L"GausElim", MB_OK);
+	}
+
+	return (bDiag && bNonDiag);
 }

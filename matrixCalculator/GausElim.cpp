@@ -77,8 +77,8 @@ void CGausElim::RowMult()
 	m_iMatrixR[2][2] = m_iMatrixA[2][2];
 	m_iMatrixR[2][3] = m_iMatrixA[2][3];
 
-	int i = ReadFromEditBox(m_hwnd, );
-	int j = ReadFromEditBox(m_hwnd, );
+	int i = ReadFromEditBox(m_hwnd, IDC_EDIT13);
+	int j = ReadFromEditBox(m_hwnd, IDC_EDIT14);
 
 	m_iMatrixR[j][0] = m_iMatrixA[j][0] * i;
 	m_iMatrixR[j][1] = m_iMatrixA[j][1] * i;
@@ -107,8 +107,8 @@ void CGausElim::RowSwap()
 	m_iMatrixR[2][2] = m_iMatrixA[2][2];
 	m_iMatrixR[2][3] = m_iMatrixA[2][3];
 
-	int i = ReadFromEditBox(m_hwnd, );
-	int j = ReadFromEditBox(m_hwnd, );
+	int i = ReadFromEditBox(m_hwnd, IDC_EDIT16);
+	int j = ReadFromEditBox(m_hwnd, IDC_EDIT17);
 
 	m_iMatrixR[i][0] = m_iMatrixA[j][0];
 	m_iMatrixR[i][1] = m_iMatrixA[j][1];
@@ -142,9 +142,9 @@ void CGausElim::MultAdd()
 	m_iMatrixR[2][2] = m_iMatrixA[2][2];
 	m_iMatrixR[2][3] = m_iMatrixA[2][3];
 
-	int i = ReadFromEditBox(m_hwnd, );
-	int j = ReadFromEditBox(m_hwnd, );
-	int k = ReadFromEditBox(m_hwnd, );
+	int i = ReadFromEditBox(m_hwnd, IDC_EDIT19);
+	int j = ReadFromEditBox(m_hwnd, IDC_EDIT20);
+	int k = ReadFromEditBox(m_hwnd, IDC_EDIT22);
 	int m_iMatrixM[1][4];
 
 	m_iMatrixM[0][0] = m_iMatrixA[j][0] * i;

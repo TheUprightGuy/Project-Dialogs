@@ -62,16 +62,28 @@ void CGausElim::RowMult()
 {
 	GetMatrix();
 
-	int i = ReadFromEditBox(m_hwnd, IDC_EDIT14);
-	int j = ReadFromEditBox(m_hwnd, IDC_EDIT13);
+	m_iMatrixR[0][0] = m_iMatrixA[0][0];
+	m_iMatrixR[0][1] = m_iMatrixA[0][1];
+	m_iMatrixR[0][2] = m_iMatrixA[0][2];
+	m_iMatrixR[0][3] = m_iMatrixA[0][3];
+
+	m_iMatrixR[1][0] = m_iMatrixA[1][0];
+	m_iMatrixR[1][1] = m_iMatrixA[1][1];
+	m_iMatrixR[1][2] = m_iMatrixA[1][2];
+	m_iMatrixR[1][3] = m_iMatrixA[1][3];
+
+	m_iMatrixR[2][0] = m_iMatrixA[2][0];
+	m_iMatrixR[2][1] = m_iMatrixA[2][1];
+	m_iMatrixR[2][2] = m_iMatrixA[2][2];
+	m_iMatrixR[2][3] = m_iMatrixA[2][3];
+
+	int i = ReadFromEditBox(m_hwnd, );
+	int j = ReadFromEditBox(m_hwnd, );
 
 	m_iMatrixR[j][0] = m_iMatrixA[j][0] * i;
 	m_iMatrixR[j][1] = m_iMatrixA[j][1] * i;
 	m_iMatrixR[j][2] = m_iMatrixA[j][2] * i;
 	m_iMatrixR[j][3] = m_iMatrixA[j][3] * i;
-
-	CheckForRowEchelon();
-	CheckForRowEchelonRedux();
 
 	SetMatrix();
 }
@@ -80,8 +92,23 @@ void CGausElim::RowSwap()
 {
 	GetMatrix();
 
-	int i = ReadFromEditBox(m_hwnd, IDC_EDIT16);
-	int j = ReadFromEditBox(m_hwnd, IDC_EDIT17);
+	m_iMatrixR[0][0] = m_iMatrixA[0][0];
+	m_iMatrixR[0][1] = m_iMatrixA[0][1];
+	m_iMatrixR[0][2] = m_iMatrixA[0][2];
+	m_iMatrixR[0][3] = m_iMatrixA[0][3];
+
+	m_iMatrixR[1][0] = m_iMatrixA[1][0];
+	m_iMatrixR[1][1] = m_iMatrixA[1][1];
+	m_iMatrixR[1][2] = m_iMatrixA[1][2];
+	m_iMatrixR[1][3] = m_iMatrixA[1][3];
+
+	m_iMatrixR[2][0] = m_iMatrixA[2][0];
+	m_iMatrixR[2][1] = m_iMatrixA[2][1];
+	m_iMatrixR[2][2] = m_iMatrixA[2][2];
+	m_iMatrixR[2][3] = m_iMatrixA[2][3];
+
+	int i = ReadFromEditBox(m_hwnd, );
+	int j = ReadFromEditBox(m_hwnd, );
 
 	m_iMatrixR[i][0] = m_iMatrixA[j][0];
 	m_iMatrixR[i][1] = m_iMatrixA[j][1];
@@ -93,9 +120,6 @@ void CGausElim::RowSwap()
 	m_iMatrixR[j][2] = m_iMatrixA[i][2];
 	m_iMatrixR[j][3] = m_iMatrixA[i][3];
 
-	CheckForRowEchelon();
-	CheckForRowEchelonRedux();
-
 	SetMatrix();
 }
 
@@ -103,9 +127,24 @@ void CGausElim::MultAdd()
 {
 	GetMatrix();
 
-	int i = ReadFromEditBox(m_hwnd, IDC_EDIT19);
-	int j = ReadFromEditBox(m_hwnd, IDC_EDIT20);
-	int k = ReadFromEditBox(m_hwnd, IDC_EDIT22);
+	m_iMatrixR[0][0] = m_iMatrixA[0][0];
+	m_iMatrixR[0][1] = m_iMatrixA[0][1];
+	m_iMatrixR[0][2] = m_iMatrixA[0][2];
+	m_iMatrixR[0][3] = m_iMatrixA[0][3];
+
+	m_iMatrixR[1][0] = m_iMatrixA[1][0];
+	m_iMatrixR[1][1] = m_iMatrixA[1][1];
+	m_iMatrixR[1][2] = m_iMatrixA[1][2];
+	m_iMatrixR[1][3] = m_iMatrixA[1][3];
+
+	m_iMatrixR[2][0] = m_iMatrixA[2][0];
+	m_iMatrixR[2][1] = m_iMatrixA[2][1];
+	m_iMatrixR[2][2] = m_iMatrixA[2][2];
+	m_iMatrixR[2][3] = m_iMatrixA[2][3];
+
+	int i = ReadFromEditBox(m_hwnd, );
+	int j = ReadFromEditBox(m_hwnd, );
+	int k = ReadFromEditBox(m_hwnd, );
 	int m_iMatrixM[1][4];
 
 	m_iMatrixM[0][0] = m_iMatrixA[j][0] * i;
@@ -118,29 +157,5 @@ void CGausElim::MultAdd()
 	m_iMatrixR[j][2] = m_iMatrixM[0][2] + m_iMatrixA[k][2];
 	m_iMatrixR[j][3] = m_iMatrixM[0][3] + m_iMatrixA[k][3];
 
-	CheckForRowEchelon();
-	CheckForRowEchelonRedux();
-
-
 	SetMatrix();
-}
-
-bool CGausElim:: CheckForRowEchelon()
-{
-	GetMatrix();
-
-	if ((m_iMatrixA[1][0] == 0) && (m_iMatrixA[2][0] == 0) && (m_iMatrixA[2][1] == 0)) //Row Echelon Form 
-	{
-		MessageBox(m_hwnd, L"Row Echelon Form found fam", L"Magnitude", MB_OK);
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-bool CGausElim::CheckForRowEchelonRedux()
-{
-	return false;
 }

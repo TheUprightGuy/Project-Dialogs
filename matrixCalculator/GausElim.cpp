@@ -62,6 +62,21 @@ void CGausElim::RowMult()
 {
 	GetMatrix();
 
+	m_iMatrixR[0][0] = m_iMatrixA[0][0];
+	m_iMatrixR[0][1] = m_iMatrixA[0][1];
+	m_iMatrixR[0][2] = m_iMatrixA[0][2];
+	m_iMatrixR[0][3] = m_iMatrixA[0][3];
+
+	m_iMatrixR[1][0] = m_iMatrixA[1][0];
+	m_iMatrixR[1][1] = m_iMatrixA[1][1];
+	m_iMatrixR[1][2] = m_iMatrixA[1][2];
+	m_iMatrixR[1][3] = m_iMatrixA[1][3];
+
+	m_iMatrixR[2][0] = m_iMatrixA[2][0];
+	m_iMatrixR[2][1] = m_iMatrixA[2][1];
+	m_iMatrixR[2][2] = m_iMatrixA[2][2];
+	m_iMatrixR[2][3] = m_iMatrixA[2][3];
+
 	int i = ReadFromEditBox(m_hwnd, );
 	int j = ReadFromEditBox(m_hwnd, );
 
@@ -76,6 +91,21 @@ void CGausElim::RowMult()
 void CGausElim::RowSwap()
 {
 	GetMatrix();
+
+	m_iMatrixR[0][0] = m_iMatrixA[0][0];
+	m_iMatrixR[0][1] = m_iMatrixA[0][1];
+	m_iMatrixR[0][2] = m_iMatrixA[0][2];
+	m_iMatrixR[0][3] = m_iMatrixA[0][3];
+
+	m_iMatrixR[1][0] = m_iMatrixA[1][0];
+	m_iMatrixR[1][1] = m_iMatrixA[1][1];
+	m_iMatrixR[1][2] = m_iMatrixA[1][2];
+	m_iMatrixR[1][3] = m_iMatrixA[1][3];
+
+	m_iMatrixR[2][0] = m_iMatrixA[2][0];
+	m_iMatrixR[2][1] = m_iMatrixA[2][1];
+	m_iMatrixR[2][2] = m_iMatrixA[2][2];
+	m_iMatrixR[2][3] = m_iMatrixA[2][3];
 
 	int i = ReadFromEditBox(m_hwnd, );
 	int j = ReadFromEditBox(m_hwnd, );
@@ -96,6 +126,21 @@ void CGausElim::RowSwap()
 void CGausElim::MultAdd()
 {
 	GetMatrix();
+
+	m_iMatrixR[0][0] = m_iMatrixA[0][0];
+	m_iMatrixR[0][1] = m_iMatrixA[0][1];
+	m_iMatrixR[0][2] = m_iMatrixA[0][2];
+	m_iMatrixR[0][3] = m_iMatrixA[0][3];
+
+	m_iMatrixR[1][0] = m_iMatrixA[1][0];
+	m_iMatrixR[1][1] = m_iMatrixA[1][1];
+	m_iMatrixR[1][2] = m_iMatrixA[1][2];
+	m_iMatrixR[1][3] = m_iMatrixA[1][3];
+
+	m_iMatrixR[2][0] = m_iMatrixA[2][0];
+	m_iMatrixR[2][1] = m_iMatrixA[2][1];
+	m_iMatrixR[2][2] = m_iMatrixA[2][2];
+	m_iMatrixR[2][3] = m_iMatrixA[2][3];
 
 	int i = ReadFromEditBox(m_hwnd, );
 	int j = ReadFromEditBox(m_hwnd, );

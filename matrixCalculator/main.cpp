@@ -18,6 +18,7 @@
 
 #include "matrix.h"
 #include "quaternion.h"
+#include "GausElim.h"
 
 //#include "utils.h"
 #include "resource.h"
@@ -27,6 +28,7 @@ HMENU g_hMenu;
 HWND g_hDlgMatrix, g_hDlgTransformation, g_hDlgGaussian, g_hDlgQuaternion, g_hDlgSLERP;
 CMatrix* g_pMatrix = 0;
 CQuater* g_pQuater = 0;
+CGausElim* g_pGausElim = 0;
 
 void GameLoop()
 {
@@ -93,6 +95,7 @@ LRESULT CALLBACK WindowProc(HWND _hwnd,
 		case ID_CALCULATOR_GAUSSIAN:
 		{
 			ShowWindow(g_hDlgGaussian, SW_SHOWNORMAL);
+			g_pGausElim = new CGausElim(g_hDlgGaussian);
 			break;
 		}
 			//open the gaussian dialog
@@ -271,6 +274,31 @@ BOOL CALLBACK GaussianDlgProc(HWND _hwnd,
 
 	switch (_msg)
 	{
+	case WM_COMMAND:
+	{
+		switch (LOWORD(_wparam))
+		{
+			case IDC_BUTTON1:
+			{
+				g_pGausElim->RowMult();
+			}
+			break;
+			case IDC_BUTTON2:
+			{
+				g_pGausElim->RowSwap();
+			}
+			break;
+			case IDC_BUTTON3:
+			{
+				g_pGausElim->RowMult();
+			}
+			break;
+
+			default:
+				break;
+		}
+	}
+	break;
 	case WM_CLOSE:
 	{
 		ShowWindow(_hwnd, SW_HIDE);

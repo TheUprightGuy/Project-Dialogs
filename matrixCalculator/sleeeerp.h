@@ -25,6 +25,7 @@ public:
 	void SetSlerp();
 
 	void SlerpABT();
+
 	void ConvertA();
 	void ConvertB();
 	void ConvertSlerp();

@@ -7,6 +7,11 @@ public:
 	CSlerp();
 	~CSlerp();
 
+	void GetA();
+	void GetB();
+	void GetT();
+	void SetSlerp();
+
 	void SlerpABT();
 	void ConvertA();
 	void ConvertB();

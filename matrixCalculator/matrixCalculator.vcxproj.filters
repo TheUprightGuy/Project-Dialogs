@@ -33,6 +33,9 @@
     <ClInclude Include="sleeeerp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="transformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="matrixCalculator.rc">

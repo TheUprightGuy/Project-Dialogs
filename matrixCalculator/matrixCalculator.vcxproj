@@ -82,6 +82,7 @@
     <ClInclude Include="quaternion.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="sleeeerp.h" />
+    <ClInclude Include="transformation.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>

@@ -79,7 +79,7 @@ void CGausElim::RowMult()
 
 	int i = ReadFromEditBox(m_hwnd, IDC_EDIT14);
 	int j;
-	if ((j = ReadFromEditBox(m_hwnd, IDC_EDIT13) + 1) > 3)
+	if ((j = ReadFromEditBox(m_hwnd, IDC_EDIT13) - 1) > 2)
 	{
 		MessageBox(m_hwnd, L"Row Does not exist", L"GausElim", MB_OK);
 		return;
@@ -114,14 +114,14 @@ void CGausElim::RowSwap()
 	m_iMatrixR[2][3] = m_iMatrixA[2][3];
 
 	int i;
-	if ((i = ReadFromEditBox(m_hwnd, IDC_EDIT16) + 1) > 3) //Check cases for rows that do not exist 
+	if ((i = ReadFromEditBox(m_hwnd, IDC_EDIT16) - 1) > 2) //Check cases for rows that do not exist 
 	{
 		MessageBox(m_hwnd, L"Row Does not exist", L"GausElim", MB_OK);
 		return;
 	}
 
 	int j;
-	if ((j = ReadFromEditBox(m_hwnd, IDC_EDIT17) + 1) > 3)
+	if ((j = ReadFromEditBox(m_hwnd, IDC_EDIT17) - 1) > 2)
 	{
 		MessageBox(m_hwnd, L"Row Does not exist", L"GausElim", MB_OK);
 		return;
@@ -163,6 +163,17 @@ void CGausElim::MultAdd()
 	int j = ReadFromEditBox(m_hwnd, IDC_EDIT20);
 	int k = ReadFromEditBox(m_hwnd, IDC_EDIT22);
 	int m_iMatrixM[1][4];
+
+	if ((j = ReadFromEditBox(m_hwnd, IDC_EDIT20) - 1) > 2) //Check cases for rows that do not exist 
+	{
+		MessageBox(m_hwnd, L"Row Does not exist", L"GausElim", MB_OK);
+		return;
+	}
+	if ((k = ReadFromEditBox(m_hwnd, IDC_EDIT22) - 1) > 2) //Check cases for rows that do not exist 
+	{
+		MessageBox(m_hwnd, L"Row Does not exist", L"GausElim", MB_OK);
+		return;
+	}
 
 	m_iMatrixM[0][0] = m_iMatrixA[j][0] * i;
 	m_iMatrixM[0][1] = m_iMatrixA[j][1] * i;

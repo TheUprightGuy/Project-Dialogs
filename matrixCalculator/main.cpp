@@ -84,7 +84,7 @@ LRESULT CALLBACK WindowProc(HWND _hwnd,
 		case ID_CALCULATOR_MATRIX:
 		{
 			ShowWindow(g_hDlgMatrix, SW_SHOWNORMAL);
-			g_pMatrix = new CMatrix(g_hDlgMatrix);
+			
 			break;
 		}
 		case ID_CALCULATOR_TRANSFORMATION:
@@ -97,21 +97,22 @@ LRESULT CALLBACK WindowProc(HWND _hwnd,
 		case ID_CALCULATOR_GAUSSIAN:
 		{
 			ShowWindow(g_hDlgGaussian, SW_SHOWNORMAL);
-			g_pGausElim = new CGausElim(g_hDlgGaussian);
+			
 			break;
 		}
 			//open the gaussian dialog
 		case ID_CALCULATOR_QUATERNION:
 		{
 			ShowWindow(g_hDlgQuaternion, SW_SHOWNORMAL);
-
-			g_pQuater = new CQuater(g_hDlgQuaternion);
+;
 			break;
 		}
 			//open the quaternion dialog
 		case ID_CALCULATOR_SLERP:
 		{
 			ShowWindow(g_hDlgSLERP, SW_SHOWNORMAL);
+
+			
 			break;
 		}
 		default:
@@ -514,10 +515,18 @@ int WINAPI WinMain(HINSTANCE _hInstance,
 	//Create the modeless dialog boxes for the calculators
 	//Matrix Calculator
 	g_hDlgMatrix = CreateDialog(_hInstance, MAKEINTRESOURCE(IDD_DialogMatrix), hwnd, MatrixDlgProc);
+	g_pMatrix = new CMatrix(g_hDlgMatrix);
+
 	g_hDlgTransformation = CreateDialog(_hInstance, MAKEINTRESOURCE(IDD_DialogTransformations), hwnd, TransformationDlgProc);
+
 	g_hDlgGaussian = CreateDialog(_hInstance, MAKEINTRESOURCE(IDD_DialogGaussian), hwnd, GaussianDlgProc);
+	g_pGausElim = new CGausElim(g_hDlgGaussian);
+
 	g_hDlgQuaternion = CreateDialog(_hInstance, MAKEINTRESOURCE(IDD_DialogQuaternion), hwnd, QuaternionDlgProc);
+	g_pQuater = new CQuater(g_hDlgQuaternion);
+
 	g_hDlgSLERP = CreateDialog(_hInstance, MAKEINTRESOURCE(IDD_DialogSLERP), hwnd, SLERPDlgProc);
+	g_pSlerp = new CSlerp(g_hDlgSLERP);
 
 	// Enter main event loop
 	while (true)

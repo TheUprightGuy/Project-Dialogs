@@ -52,6 +52,9 @@
     <ClCompile Include="GausElim.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="sleeeerp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="slerpconvert.txt">

@@ -92,6 +92,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="matrix.cpp" />
     <ClCompile Include="quaternion.cpp" />
+    <ClCompile Include="sleeeerp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="slerpconvert.txt" />

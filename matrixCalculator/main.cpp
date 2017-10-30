@@ -19,6 +19,7 @@
 #include "matrix.h"
 #include "quaternion.h"
 #include "GausElim.h"
+#include "sleeeerp.h"
 
 //#include "utils.h"
 #include "resource.h"
@@ -29,6 +30,7 @@ HWND g_hDlgMatrix, g_hDlgTransformation, g_hDlgGaussian, g_hDlgQuaternion, g_hDl
 CMatrix* g_pMatrix = 0;
 CQuater* g_pQuater = 0;
 CGausElim* g_pGausElim = 0;
+CSlerp* g_pSlerp = 0;
 
 void GameLoop()
 {
@@ -416,15 +418,43 @@ BOOL CALLBACK SLERPDlgProc(HWND _hwnd,
 	WPARAM _wparam,
 	LPARAM _lparam)
 {
-
 	switch (_msg)
 	{
 	case WM_CLOSE:
 	{
 		ShowWindow(_hwnd, SW_HIDE);
+	}
+	case WM_COMMAND:
+	{
+		switch (LOWORD(_wparam))
+		{
+		case IDC_BUTTON1:
+		{
+			g_pSlerp->SlerpABT();
+		}
+		break;
+		case IDC_BUTTON2:
+		{
+			g_pSlerp->ConvertA();
+		}
+		break;
+		case IDC_BUTTON3:
+		{
+			g_pSlerp->ConvertB();
+		}
+		break;
+		case IDC_BUTTON4:
+		{
+			g_pSlerp->ConvertSlerp();
+		}
+		break;
+		default:
+			break;
+		}
 		return TRUE;
 		break;
 	}
+	break;
 	default:
 		break;
 	}

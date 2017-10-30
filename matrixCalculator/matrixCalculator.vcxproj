@@ -94,9 +94,6 @@
     <ClCompile Include="quaternion.cpp" />
     <ClCompile Include="sleeeerp.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="slerpconvert.txt" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

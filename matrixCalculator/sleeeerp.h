@@ -3,14 +3,7 @@
 
 #include <Windows.h>
 
-typedef struct QUAT
-{
-	int w;
-	int x;
-	int y;
-	int z;
-} Quaternion;
-
+#include "quaternion.h"
 
 class CSlerp
 {

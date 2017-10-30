@@ -36,6 +36,10 @@ private:
 	Quaternion QuatA;
 	Quaternion QuatB;
 
+	Quaternion QuatR;
+	
+	int iIntParam;
+
 	int iMatrixR[4][4];
 };
 

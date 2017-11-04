@@ -20,6 +20,7 @@
 #include "quaternion.h"
 #include "GausElim.h"
 #include "sleeeerp.h"
+#include "transformation.h"
 
 //#include "utils.h"
 #include "resource.h"
@@ -31,6 +32,7 @@ CMatrix* g_pMatrix = 0;
 CQuater* g_pQuater = 0;
 CGausElim* g_pGausElim = 0;
 CSlerp* g_pSlerp = 0;
+CTrans* g_pTrans = 0;
 
 void GameLoop()
 {
@@ -253,9 +255,94 @@ BOOL CALLBACK TransformationDlgProc(HWND _hwnd,
 	WPARAM _wparam,
 	LPARAM _lparam)
 {
+	HWND hwndComboBox = GetDlgItem(_hwnd, IDC_COMBO1);
+	
+	static int iItemIndex;
 
 	switch (_msg)
 	{
+	case WM_INITDIALOG:
+	{
+		SendMessage(hwndComboBox, CB_ADDSTRING, NULL, (LPARAM)(L"Set Identity Matrix"));
+		SendMessage(hwndComboBox, CB_ADDSTRING, NULL, (LPARAM)(L"Set Scale Matrix"));
+		SendMessage(hwndComboBox, CB_ADDSTRING, NULL, (LPARAM)(L"Set Tranlation Matrix"));
+		SendMessage(hwndComboBox, CB_ADDSTRING, NULL, (LPARAM)(L"Set Rotation Matrix"));
+		SendMessage(hwndComboBox, CB_ADDSTRING, NULL, (LPARAM)(L"Set Projection Matrix"));
+
+		SendMessage(hwndComboBox, CB_ADDSTRING, NULL, (LPARAM)(L"Scale by Previous"));
+		SendMessage(hwndComboBox, CB_ADDSTRING, NULL, (LPARAM)(L"Translation by Previous"));
+		SendMessage(hwndComboBox, CB_ADDSTRING, NULL, (LPARAM)(L"Rotation by Previous"));
+		SendMessage(hwndComboBox, CB_ADDSTRING, NULL, (LPARAM)(L"Projection by Previous"));
+	}
+	break;
+	case WM_COMMAND:
+	{
+		if (HIWORD(_wparam) == CBN_SELCHANGE)
+		{
+			iItemIndex = SendMessage((HWND)_lparam, (UINT)CB_GETCURSEL, (WPARAM)0, (LPARAM)0);
+		
+		}
+		switch (LOWORD(_wparam))
+		{
+		case IDC_BUTTON4:
+		{
+			switch (iItemIndex)
+			{
+			case 0: //Identity Matrix
+			{
+				g_pTrans->SetIdentity();
+			}
+			break;
+			case 1: //Scale
+			{
+				g_pTrans->SetScaleMatrix();
+			}
+			break;
+			case 2: //Transformation
+			{
+				g_pTrans->SetTransMatrix();
+			}
+			break;
+			case 3: //Rotation
+			{
+				g_pTrans->SetRotateMatrix();
+			}
+			break;
+			case 4: //Projection
+			{
+				g_pTrans->SetProjectMatrix();
+			}
+			break;
+			case 5: //Scale by Previous
+			{
+				g_pTrans->ScaleByPrevious();
+			}
+			break;
+			case 6: //Translation by Previous
+			{
+				g_pTrans->TransByPrevious();
+			}
+			break;
+			case 7: //Rotation by Previous
+			{
+				g_pTrans->RotateByPrevious();
+			}
+			break;
+			case 8: //Projection by Previous
+			{
+				g_pTrans->ProjectByPrevious();
+			}
+			break;
+			default:
+				break;
+			}
+		}
+		break;
+		default:
+			break;
+		}
+	}
+	break;
 	case WM_CLOSE:
 	{
 		ShowWindow(_hwnd, SW_HIDE);
@@ -518,6 +605,7 @@ int WINAPI WinMain(HINSTANCE _hInstance,
 	g_pMatrix = new CMatrix(g_hDlgMatrix);
 
 	g_hDlgTransformation = CreateDialog(_hInstance, MAKEINTRESOURCE(IDD_DialogTransformations), hwnd, TransformationDlgProc);
+	g_pTrans = new CTrans(g_hDlgTransformation);
 
 	g_hDlgGaussian = CreateDialog(_hInstance, MAKEINTRESOURCE(IDD_DialogGaussian), hwnd, GaussianDlgProc);
 	g_pGausElim = new CGausElim(g_hDlgGaussian);

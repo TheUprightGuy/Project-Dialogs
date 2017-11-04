@@ -256,7 +256,7 @@ BOOL CALLBACK TransformationDlgProc(HWND _hwnd,
 	LPARAM _lparam)
 {
 	HWND hwndComboBox = GetDlgItem(_hwnd, IDC_COMBO1);
-	
+	HWND hwndProjBox = GetDlgItem(_hwnd, IDC_COMBO2);
 	static int iItemIndex;
 
 	switch (_msg)
@@ -273,13 +273,18 @@ BOOL CALLBACK TransformationDlgProc(HWND _hwnd,
 		SendMessage(hwndComboBox, CB_ADDSTRING, NULL, (LPARAM)(L"Translation by Previous"));
 		SendMessage(hwndComboBox, CB_ADDSTRING, NULL, (LPARAM)(L"Rotation by Previous"));
 		SendMessage(hwndComboBox, CB_ADDSTRING, NULL, (LPARAM)(L"Projection by Previous"));
+
+		SendMessage(hwndProjBox, CB_ADDSTRING, NULL, (LPARAM)(L"X Axis"));
+		SendMessage(hwndProjBox, CB_ADDSTRING, NULL, (LPARAM)(L"Y Axis"));
+		SendMessage(hwndProjBox, CB_ADDSTRING, NULL, (LPARAM)(L"Z Axis"));
+//		SendMessage(hwndProjBox, CB_SETCURSEL, 0, NULL);
 	}
 	break;
 	case WM_COMMAND:
 	{
 		if (HIWORD(_wparam) == CBN_SELCHANGE)
 		{
-			iItemIndex = SendMessage((HWND)_lparam, (UINT)CB_GETCURSEL, (WPARAM)0, (LPARAM)0);
+			iItemIndex = SendMessage(hwndComboBox, (UINT)CB_GETCURSEL, (WPARAM)0, (LPARAM)0);
 		
 		}
 		switch (LOWORD(_wparam))

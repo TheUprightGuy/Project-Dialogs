@@ -24,7 +24,8 @@ public:
 	void ReadScaleXYZ();
 	void ReadTransXYZ();
 	void ReadRotXYZ(); //Plus the degrees
-	void ReadProj(); //Axis will be read by radio boxes, let jack handle that
+	void ReadProj(); //Axis will be read by combo boxes, let jack handle that
+	void SetProjAxis(int _ixyz);
 
 	//Not sure how Row and Col are different, (order of operations??), but it looks like we'll be doing calcs for each one, 
 	//e.g concatenate row by row, for the equation, display, then do columnn major

@@ -17,15 +17,18 @@ public:
 	~CTrans();
 
 	/*Set the matrices*/
-	void ReadColMatrix(); //Column Major 
-	void ReadRowMatrix(); //Row Major
+	void ReadColMatrix();
+	void SetColMatrix(); //Column Major 
+
+	void ReadRowMatrix();
+	void SetRowMatrix(); //Row Major
 
 	/*Read Various Coords of Transforms*/
 	void ReadScaleXYZ();
 	void ReadTransXYZ();
 	void ReadRotXYZ(); //Plus the degrees
 	void ReadProj(); //Axis will be read by combo boxes, let jack handle that
-	void SetProjAxis(int _ixyz);
+	void ReadProjAxis(int _ixyz) { m_iProjAxis = _ixyz; }
 
 	//Not sure how Row and Col are different, (order of operations??), but it looks like we'll be doing calcs for each one, 
 	//e.g concatenate row by row, for the equation, display, then do columnn major
@@ -45,14 +48,14 @@ public:
 
 
 private:
-	int m_iMatrixCol[4][4];
-	int m_iMatrixRow[4][4];
+	float m_iMatrixCol[4][4];
+	float m_iMatrixRow[4][4];
 
 	Coordinates m_ScaleXYZ;
 	Coordinates m_TransXYZ;
 	Coordinates m_RotateXYZ;
 	
-	int m_iAngleOfRot;
+	float m_iAngleOfRot;
 
 	int m_iProjAxis; //0 = NULL, x == 1, y ==2, z == 3;
 	int m_iProjDistance;
